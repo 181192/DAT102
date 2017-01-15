@@ -38,7 +38,7 @@ public class CDArkiv implements CDArkivADT {
 		if (antall == cdTabell.length) {
 			utvidKapasitet();
 		}
-		cdTabell[antall] = nyCD;
+		cdTabell[antall] = nyCd;
 		antall++;
 
 	}
