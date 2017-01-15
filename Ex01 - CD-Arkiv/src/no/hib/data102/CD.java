@@ -9,7 +9,7 @@ public class CD {
 	private String plateselskap;
 
 	public CD(int cDnr, String artist, String tittel, int lanseringsår, Sjanger sjanger, String plateselskap) {
-		cDnr = cDnr;
+		this.cDnr = cDnr;
 		this.artist = artist;
 		this.tittel = tittel;
 		this.lanseringsår = lanseringsår;
