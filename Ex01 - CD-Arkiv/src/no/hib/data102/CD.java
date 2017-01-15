@@ -1,15 +1,15 @@
 package no.hib.data102;
 
 public class CD {
-	private int cDnr;
+	private int cdNr;
 	private String artist;
 	private String tittel;
 	private int lanseringsår;
 	private Sjanger sjanger;
 	private String plateselskap;
 
-	public CD(int cDnr, String artist, String tittel, int lanseringsår, Sjanger sjanger, String plateselskap) {
-		this.cDnr = cDnr;
+	public CD(int cdNr, String artist, String tittel, int lanseringsår, Sjanger sjanger, String plateselskap) {
+		this.cdNr = cdNr;
 		this.artist = artist;
 		this.tittel = tittel;
 		this.lanseringsår = lanseringsår;
@@ -21,12 +21,12 @@ public class CD {
 		this(0, "", "", 0, null, "");
 	}
 
-	public int getCDnr() {
-		return cDnr;
+	public int getCdNr() {
+		return cdNr;
 	}
 
-	public void setCDnr(int cDnr) {
-		this.cDnr = cDnr;
+	public void setCdNr(int cdNr) {
+		this.cdNr = cdNr;
 	}
 
 	public String getArtist() {
@@ -71,7 +71,7 @@ public class CD {
 
 	@Override
 	public String toString() {
-		return "CDnr=" + cDnr + ", artist=" + artist + ", tittel=" + tittel + ", lanseringsår=" + lanseringsår
+		return "CDnr=" + cdNr + ", artist=" + artist + ", tittel=" + tittel + ", lanseringsår=" + lanseringsår
 				+ ", sjanger=" + sjanger + ", plateselskap=" + plateselskap;
 	}
 } // class
