@@ -12,7 +12,7 @@ public class Fil {
 	 * @param filnavn
 	 */
 	public static void lesFraFil(CDArkiv cdarkiv, String filnavn) {
-
+		// TODO Metode ikke laget enda 
 	}
 
 	// Alternativt :
@@ -34,6 +34,7 @@ public class Fil {
 	 */
 	public static void skrivTilFil(CDArkivADT cdarkiv, String filnavn, boolean utvid) {
 		// Kan sløyfe siste paramenter...
+		// TODO Metode ikke laget enda
 	}
 
 } // class

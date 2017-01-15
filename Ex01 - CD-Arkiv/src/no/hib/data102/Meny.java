@@ -31,6 +31,6 @@ public class Meny {
 	 * Starter menyen!
 	 */
 	public void start() {
-
+		// TODO Metode ikke laget enda
 	}
 } // class

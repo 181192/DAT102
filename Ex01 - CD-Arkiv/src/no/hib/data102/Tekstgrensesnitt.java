@@ -9,6 +9,7 @@ public class Tekstgrensesnitt {
 	 * @return
 	 */
 	public CD lesCd() {
+		// TODO Metode ikke laget enda
 		return null;
 	}
 
@@ -18,7 +19,7 @@ public class Tekstgrensesnitt {
 	 * @param cd
 	 */
 	public void visCD(CD cd) {
-
+		// TODO Metode ikke laget enda
 	}
 
 	/**
@@ -28,7 +29,7 @@ public class Tekstgrensesnitt {
 	 * @param delstreng
 	 */
 	public void skrivUtCdDelstrengITittel(CDArkivADT cda, String delstreng) {
-
+		// TODO Metode ikke laget enda
 	}
 
 	/**
@@ -37,7 +38,7 @@ public class Tekstgrensesnitt {
 	 * @param cda
 	 */
 	public void skrivUtCdArtist(CDArkivADT cda) {
-
+		// TODO Metode ikke laget enda
 	}
 
 	/**
@@ -47,6 +48,6 @@ public class Tekstgrensesnitt {
 	 * @param cda
 	 */
 	public void skrivUtStatistikk(CDArkivADT cda) {
-
+		// TODO Metode ikke laget enda
 	}
 }
