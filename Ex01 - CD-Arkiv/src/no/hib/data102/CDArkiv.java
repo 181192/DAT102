@@ -22,11 +22,12 @@ public class CDArkiv implements CDArkivADT {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	/**
 	 * Hjelpe metode for å utvide kapasiteten til CDArkiv tabellen.
 	 */
 	private void utvidKapasitet() {
-		CD[] hjelpetabell = new CD [(int) (1.1*cdTabell.length)];
+		CD[] hjelpetabell = new CD[(int) (1.1 * cdTabell.length)];
 		for (int i = 0; i < cdTabell.length; i++) {
 			hjelpetabell[i] = cdTabell[i];
 		}
