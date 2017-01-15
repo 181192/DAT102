@@ -19,8 +19,7 @@ public class CDArkiv implements CDArkivADT {
 
 	@Override
 	public CD[] hentCDTabell() {
-		// TODO Auto-generated method stub
-		return null;
+		return cdTabell;
 	}
 
 	/**
@@ -46,7 +45,7 @@ public class CDArkiv implements CDArkivADT {
 
 	@Override
 	public boolean slettCd(int cdNr) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
@@ -91,7 +90,7 @@ public class CDArkiv implements CDArkivADT {
 	 *            N er antall elementer
 	 * @return En ny full tabell
 	 */
-	@SuppressWarnings("unused")
+	@SuppressWarnings("unused") // slett linje når metode taes i bruk
 	private CD[] trimTab(CD[] tab, int n) {
 		CD[] cdtab2 = new CD[n];
 		int i = 0;
