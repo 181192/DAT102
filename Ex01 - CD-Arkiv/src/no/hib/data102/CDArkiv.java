@@ -45,26 +45,75 @@ public class CDArkiv implements CDArkivADT {
 
 	@Override
 	public boolean slettCd(int cdNr) {
-		
-		return false;
+		boolean tilstand = false;
+		int posisjon = sokCdNr(cdNr);
+		if (posisjon != -1) {
+			cdTabell[posisjon] = cdTabell[antall - 1];
+			cdTabell[antall - 1] = null;
+			antall--;
+			tilstand = true;
+		} else {
+			System.out.println("CD'en finnes ikke i arkivet!");
+		}
+		return tilstand;
+	}
+
+	/**
+	 * Søker etter CD i tabellen ved hjelp av CD-Nr
+	 * 
+	 * @param cdNr
+	 *            = Nummeret til CD'en (int)
+	 * @return -1 dersom CD'en ikke finnes, ellers posisjonen CD'en ligger i
+	 *         tabellen.
+	 */
+	public int sokCdNr(int cdNr) {
+		int posisjon = -1;
+		int i = 0;
+		boolean funnet = false;
+
+		while (!funnet && i < antall) {
+			if (cdTabell[i].getCDnr() == cdNr) {
+				posisjon = i;
+				funnet = true;
+			}
+			i++;
+		}
+		return posisjon;
 	}
 
 	@Override
 	public CD[] sokTittel(String delstreng) {
-		// TODO Auto-generated method stub
-		return null;
+		CD[] resultatTittel = new CD[antall];
+		int i = 0;
+		boolean funnet = false;
+		
+		while (!funnet && i < antall) {
+			if (cdTabell[i].getTittel().contains(delstreng)) {
+				resultatTittel[i] = cdTabell[i];
+				funnet = true;
+			}
+		}
+		return resultatTittel;
 	}
 
 	@Override
 	public CD[] sokArtist(String delstreng) {
-		// TODO Auto-generated method stub
-		return null;
+		CD[] resultatArtist = new CD[antall];
+		int i = 0;
+		boolean funnet = false;
+		
+		while (!funnet && i < antall) {
+			if (cdTabell[i].getArtist().contains(delstreng)) {
+				resultatArtist[i] = cdTabell[i];
+				funnet = true;
+			}
+		}
+		return resultatArtist;
 	}
 
 	@Override
 	public int hentAntall() {
-		// TODO Auto-generated method stub
-		return 0;
+		return antall;
 	}
 
 	@Override
