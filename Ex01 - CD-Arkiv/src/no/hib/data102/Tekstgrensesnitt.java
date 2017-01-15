@@ -1,5 +1,7 @@
 package no.hib.data102;
 
+import java.util.Scanner;
+
 import no.hib.data102.adt.CDArkivADT;
 
 public class Tekstgrensesnitt {
@@ -9,8 +11,30 @@ public class Tekstgrensesnitt {
 	 * @return
 	 */
 	public CD lesCd() {
-		// TODO Metode ikke laget enda
-		return null;
+		Scanner tast = new Scanner(System.in);
+
+		System.out.print("Oppgi CD-Nummer: ");
+		int cdNr = tast.nextInt();
+
+		System.out.print("Oppgi artist/gruppe: ");
+		String artist = tast.nextLine();
+
+		System.out.print("Oppgi tittel: ");
+		String tittel = tast.nextLine();
+
+		System.out.print("Oppgi laseringsår: ");
+		int lanseringsår = tast.nextInt();
+
+		System.out.print("Oppgi sjanger: ");
+		Sjanger sjanger = Sjanger.finnSjanger(tast.next());
+
+		System.out.print("Oppgi lanseringsår: ");
+		String plateselskap = tast.nextLine();
+
+		CD nycd = new CD(cdNr, artist, tittel, lanseringsår, sjanger, plateselskap);
+
+		tast.close();
+		return nycd;
 	}
 
 	/**
@@ -19,7 +43,7 @@ public class Tekstgrensesnitt {
 	 * @param cd
 	 */
 	public void visCD(CD cd) {
-		// TODO Metode ikke laget enda
+		cd.toString();
 	}
 
 	/**
@@ -29,7 +53,7 @@ public class Tekstgrensesnitt {
 	 * @param delstreng
 	 */
 	public void skrivUtCdDelstrengITittel(CDArkivADT cda, String delstreng) {
-		// TODO Metode ikke laget enda
+		cda.sokTittel(delstreng).toString();
 	}
 
 	/**

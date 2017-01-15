@@ -51,6 +51,7 @@ public class CDArkiv implements CDArkivADT {
 			cdTabell[posisjon] = cdTabell[antall - 1];
 			cdTabell[antall - 1] = null;
 			antall--;
+			trimTab(cdTabell, antall); // må teste om dette funker, bare en tanke...
 			tilstand = true;
 		} else {
 			System.out.println("CD'en finnes ikke i arkivet!");
@@ -66,7 +67,7 @@ public class CDArkiv implements CDArkivADT {
 	 * @return -1 dersom CD'en ikke finnes, ellers posisjonen CD'en ligger i
 	 *         tabellen.
 	 */
-	public int sokCdNr(int cdNr) {
+	private int sokCdNr(int cdNr) {
 		int posisjon = -1;
 		int i = 0;
 		boolean funnet = false;
@@ -86,7 +87,7 @@ public class CDArkiv implements CDArkivADT {
 		CD[] resultatTittel = new CD[antall];
 		int i = 0;
 		boolean funnet = false;
-		
+
 		while (!funnet && i < antall) {
 			if (cdTabell[i].getTittel().contains(delstreng)) {
 				resultatTittel[i] = cdTabell[i];
@@ -101,7 +102,7 @@ public class CDArkiv implements CDArkivADT {
 		CD[] resultatArtist = new CD[antall];
 		int i = 0;
 		boolean funnet = false;
-		
+
 		while (!funnet && i < antall) {
 			if (cdTabell[i].getArtist().contains(delstreng)) {
 				resultatArtist[i] = cdTabell[i];
@@ -139,7 +140,6 @@ public class CDArkiv implements CDArkivADT {
 	 *            N er antall elementer
 	 * @return En ny full tabell
 	 */
-	@SuppressWarnings("unused") // slett linje når metode taes i bruk
 	private CD[] trimTab(CD[] tab, int n) {
 		CD[] cdtab2 = new CD[n];
 		int i = 0;
