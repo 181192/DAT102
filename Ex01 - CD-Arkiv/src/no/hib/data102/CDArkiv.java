@@ -6,12 +6,12 @@ public class CDArkiv implements CDArkivADT {
 
 	private CD[] cdTabell;
 	private int antall;
-	
+
 	public CDArkiv() {
 		cdTabell = null;
 		antall = 0;
 	}
-	
+
 	public CDArkiv(int maksAntall) {
 		cdTabell = new CD[maksAntall];
 		this.antall = 0;
@@ -22,10 +22,24 @@ public class CDArkiv implements CDArkivADT {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	/**
+	 * Hjelpe metode for å utvide kapasiteten til CDArkiv tabellen.
+	 */
+	private void utvidKapasitet() {
+		CD[] hjelpetabell = new CD [(int) (1.1*cdTabell.length)];
+		for (int i = 0; i < cdTabell.length; i++) {
+			hjelpetabell[i] = cdTabell[i];
+		}
+		cdTabell = hjelpetabell;
+	}
 
 	@Override
 	public void leggTilCd(CD nyCd) {
-		// TODO Auto-generated method stub
+		if (antall == cdTabell.length) {
+			utvidKapasitet();
+		}
+		cdTabell[antall] = nyCD;
+		antall++;
 
 	}
 
@@ -62,5 +76,28 @@ public class CDArkiv implements CDArkivADT {
 			}
 		}
 		return antallCDISjanger;
+	}
+
+	/**
+	 * Ved hjelp av å trimme tabellen, vil eventuelle null-referanser alltid
+	 * være på slutten av tabellen. Alle referanser som referer til objekter vil
+	 * komme sammenhengenede etter hverandre. Forusatt da at tabellen ikke er
+	 * blitt tom.
+	 * 
+	 * @param tab
+	 *            Tabell av CD-er
+	 * @param n
+	 *            N er antall elementer
+	 * @return En ny full tabell
+	 */
+	@SuppressWarnings("unused")
+	private CD[] trimTab(CD[] tab, int n) {
+		CD[] cdtab2 = new CD[n];
+		int i = 0;
+		while (i < n) {
+			cdtab2[i] = tab[i];
+			i++;
+		} // while
+		return cdtab2;
 	}
 }
