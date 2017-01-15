@@ -72,7 +72,7 @@ public class CDArkiv implements CDArkivADT {
 		boolean funnet = false;
 
 		while (!funnet && i < antall) {
-			if (cdTabell[i].getCDnr() == cdNr) {
+			if (cdTabell[i].getCdNr() == cdNr) {
 				posisjon = i;
 				funnet = true;
 			}
