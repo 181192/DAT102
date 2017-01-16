@@ -33,7 +33,7 @@ public class Tekstgrensesnitt {
 
 		CD nycd = new CD(cdNr, artist, tittel, lanseringsår, sjanger, plateselskap);
 
-		tast.close();
+		tast.close(); // må kanskje fjerne..?
 		return nycd;
 	}
 
@@ -61,17 +61,21 @@ public class Tekstgrensesnitt {
 	 * 
 	 * @param cda
 	 */
-	public void skrivUtCdArtist(CDArkivADT cda) {
-		// TODO Metode ikke laget enda
+	public void skrivUtCdArtist(CDArkivADT cda, String delstreng) {
+		cda.sokTittel(delstreng).toString();
 	}
 
 	/**
 	 * Skrive ut en enkel statistikk som inneholder antall CD-er totalt og hvor
 	 * mange det er i hver sjanger
 	 * 
-	 * @param cda
+	 * @param cda CDArkiv
 	 */
 	public void skrivUtStatistikk(CDArkivADT cda) {
-		// TODO Metode ikke laget enda
+		System.out.println("Antall CD'er i arkivet: " + cda.hentAntall());
+		System.out.println("Antall CD'er med sjangeren Rock: " + cda.hentAntall(Sjanger.finnSjanger("rock")));
+		System.out.println("Antall CD'er med sjangeren Pop: " + cda.hentAntall(Sjanger.finnSjanger("pop")));
+		System.out.println("Antall CD'er med sjangeren Opera: " + cda.hentAntall(Sjanger.finnSjanger("opera")));
+		System.out.println("Antall CD'er med sjangeren Classic: " + cda.hentAntall(Sjanger.finnSjanger("classic")));
 	}
-}
+} // class

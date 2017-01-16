@@ -1,9 +1,15 @@
 package no.hib.data102;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import no.hib.data102.adt.CDArkivADT;
 
 public class Fil {
-	final String SKILLE = "#"; // Eventuelt ha som parameter i metodene
+	static final String SKILLE = "#"; // Eventuelt ha som parameter i metodene
+	static final String CDARKIV_FIL = "cdarkiv.txt";
+	static int antall;
 
 	/**
 	 * Lese et CDArkiv fra tekstfil
@@ -13,6 +19,8 @@ public class Fil {
 	 */
 	public static void lesFraFil(CDArkiv cdarkiv, String filnavn) {
 		// TODO Metode ikke laget enda 
+		
+		
 	}
 
 	// Alternativt :
@@ -35,6 +43,23 @@ public class Fil {
 	public static void skrivTilFil(CDArkivADT cdarkiv, String filnavn, boolean utvid) {
 		// Kan sløyfe siste paramenter...
 		// TODO Metode ikke laget enda
+		antall = cdarkiv.hentAntall();
+		try {
+			FileWriter cdaFil = new FileWriter(CDARKIV_FIL, false);
+			
+			PrintWriter utfil = new PrintWriter(cdaFil);
+			
+			utfil.println(antall);
+			
+			utfil.print(cdarkiv.hentCDTabell().);
+			
+			utfil.close();
+			
+		} catch (IOException e) {
+			System.err.println("Feil! : " + e);
+			System.exit(1);
+		}
+		
 	}
 
 } // class

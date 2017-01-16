@@ -48,13 +48,11 @@ public class CDArkiv implements CDArkivADT {
 		boolean tilstand = false;
 		int posisjon = sokCdNr(cdNr);
 		if (posisjon != -1) {
-			cdTabell[posisjon] = cdTabell[antall - 1];
-			cdTabell[antall - 1] = null;
+			cdTabell[posisjon] = cdTabell[antall];
+			cdTabell[antall] = null;
 			antall--;
 			trimTab(cdTabell, antall); // må teste om dette funker, bare en tanke...
 			tilstand = true;
-		} else {
-			System.out.println("CD'en finnes ikke i arkivet!");
 		}
 		return tilstand;
 	}
