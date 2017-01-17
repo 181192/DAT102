@@ -130,7 +130,7 @@ public class Meny {
 		System.out.print("Hvor stort er arkivet? (heltall) ");
 		int plasser = tast.nextInt();
 		cda = new CDArkiv(plasser);
-
+		
 		ValgArkiv(tast);
 		Fil.skrivTilFil(cda, navnPaaArkiv + ".txt", false);
 
