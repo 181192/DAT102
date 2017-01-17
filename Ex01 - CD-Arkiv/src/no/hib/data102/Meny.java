@@ -2,6 +2,12 @@ package no.hib.data102;
 
 import no.hib.data102.adt.CDArkivADT;
 
+/**
+ * Klasse for meny
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ */
 public class Meny {
 	private Tekstgrensesnitt tekstgr;
 	private CDArkivADT cda;

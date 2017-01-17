@@ -1,18 +1,24 @@
 package no.hib.data102;
 
+/**
+ * Klasse for CD
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ */
 public class CD {
 	private int cdNr;
 	private String artist;
 	private String tittel;
-	private int lanseringsår;
+	private int lanseringsaar;
 	private Sjanger sjanger;
 	private String plateselskap;
 
-	public CD(int cdNr, String artist, String tittel, int lanseringsår, Sjanger sjanger, String plateselskap) {
+	public CD(int cdNr, String artist, String tittel, int lanseringsaar, Sjanger sjanger, String plateselskap) {
 		this.cdNr = cdNr;
 		this.artist = artist;
 		this.tittel = tittel;
-		this.lanseringsår = lanseringsår;
+		this.lanseringsaar = lanseringsaar;
 		this.sjanger = sjanger;
 		this.plateselskap = plateselskap;
 	}
@@ -45,12 +51,12 @@ public class CD {
 		this.tittel = tittel;
 	}
 
-	public int getLanseringsår() {
-		return lanseringsår;
+	public int getLanseringsaar() {
+		return lanseringsaar;
 	}
 
-	public void setLanseringsår(int lanseringsår) {
-		this.lanseringsår = lanseringsår;
+	public void setLanseringsaar(int lanseringsaar) {
+		this.lanseringsaar = lanseringsaar;
 	}
 
 	public Sjanger getSjanger() {
@@ -71,7 +77,7 @@ public class CD {
 
 	@Override
 	public String toString() {
-		return "CDnr=" + cdNr + ", artist=" + artist + ", tittel=" + tittel + ", lanseringsår=" + lanseringsår
+		return "CDnr=" + cdNr + ", artist=" + artist + ", tittel=" + tittel + ", lanseringsår=" + lanseringsaar
 				+ ", sjanger=" + sjanger + ", plateselskap=" + plateselskap;
 	}
 } // class

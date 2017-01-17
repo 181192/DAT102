@@ -2,6 +2,12 @@ package no.hib.data102;
 
 import no.hib.data102.adt.CDArkivADT;
 
+/**
+ * Klasse for CDArkiv
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ */
 public class CDArkiv implements CDArkivADT {
 
 	private CD[] cdTabell;
@@ -51,7 +57,8 @@ public class CDArkiv implements CDArkivADT {
 			cdTabell[posisjon] = cdTabell[antall];
 			cdTabell[antall] = null;
 			antall--;
-			trimTab(cdTabell, antall); // må teste om dette funker, bare en tanke...
+			trimTab(cdTabell, antall); // må teste om dette funker, bare en
+										// tanke...
 			tilstand = true;
 		}
 		return tilstand;

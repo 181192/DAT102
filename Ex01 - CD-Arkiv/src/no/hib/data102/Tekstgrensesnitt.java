@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 import no.hib.data102.adt.CDArkivADT;
 
+/**
+ * Klasse for tekstgrensesnitt
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ */
 public class Tekstgrensesnitt {
 	/**
 	 * Lese opplysningene om en CD fra tastatur
@@ -61,15 +67,16 @@ public class Tekstgrensesnitt {
 	 * 
 	 * @param cda
 	 */
-	public void skrivUtCdArtist(CDArkivADT cda, String delstreng) {
-		cda.sokTittel(delstreng).toString();
+	public void skrivUtCdArtist(CDArkivADT cda) {
+		// TODO Metode ikke laget enda
 	}
 
 	/**
 	 * Skrive ut en enkel statistikk som inneholder antall CD-er totalt og hvor
 	 * mange det er i hver sjanger
 	 * 
-	 * @param cda CDArkiv
+	 * @param cda
+	 *            CDArkiv
 	 */
 	public void skrivUtStatistikk(CDArkivADT cda) {
 		System.out.println("Antall CD'er i arkivet: " + cda.hentAntall());
