@@ -23,10 +23,10 @@ public class Tekstgrensesnitt {
 		int cdNr = tast.nextInt();
 
 		System.out.print("Oppgi artist/gruppe: ");
-		String artist = tast.nextLine();
+		String artist = tast.next();
 
 		System.out.print("Oppgi tittel: ");
-		String tittel = tast.nextLine();
+		String tittel = tast.next();
 
 		System.out.print("Oppgi laseringsår: ");
 		int lanseringsår = tast.nextInt();
@@ -34,12 +34,12 @@ public class Tekstgrensesnitt {
 		System.out.print("Oppgi sjanger: ");
 		Sjanger sjanger = Sjanger.finnSjanger(tast.next());
 
-		System.out.print("Oppgi lanseringsår: ");
-		String plateselskap = tast.nextLine();
+		System.out.print("Oppgi plateselskap: ");
+		String plateselskap = tast.next();
 
 		CD nycd = new CD(cdNr, artist, tittel, lanseringsår, sjanger, plateselskap);
 
-		tast.close(); // må kanskje fjerne..?
+		
 		return nycd;
 	}
 
@@ -49,7 +49,7 @@ public class Tekstgrensesnitt {
 	 * @param cd
 	 */
 	public void visCD(CD cd) {
-		cd.toString();
+		System.out.println(cd.toString());
 	}
 
 	/**
@@ -59,7 +59,11 @@ public class Tekstgrensesnitt {
 	 * @param delstreng
 	 */
 	public void skrivUtCdDelstrengITittel(CDArkivADT cda, String delstreng) {
-		cda.sokTittel(delstreng).toString();
+		CD[] cdsamling = cda.sokTittel(delstreng);
+
+		for (int i = 0; i < cdsamling.length; i++) {
+			System.out.println(cdsamling[i].getTittel());
+		}
 	}
 
 	/**
@@ -67,8 +71,13 @@ public class Tekstgrensesnitt {
 	 * 
 	 * @param cda
 	 */
-	public void skrivUtCdArtist(CDArkivADT cda) {
-		// TODO Metode ikke laget enda
+	public void skrivUtCdArtist(CDArkivADT cda, String delstreng) {
+		CD[] cdsamling = cda.sokArtist(delstreng);
+
+		System.out.println("CD'er av " + cdsamling[0].getArtist() + "\n");
+		for (int i = 0; i < cdsamling.length; i++) {
+			System.out.println(cdsamling[i].toString());
+		}
 	}
 
 	/**

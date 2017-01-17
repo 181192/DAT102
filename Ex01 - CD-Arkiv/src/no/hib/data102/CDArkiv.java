@@ -9,13 +9,12 @@ import no.hib.data102.adt.CDArkivADT;
  *
  */
 public class CDArkiv implements CDArkivADT {
-
+	final static int STK = 100;
 	private CD[] cdTabell;
 	private int antall;
 
 	public CDArkiv() {
-		cdTabell = null;
-		antall = 0;
+		this(STK);
 	}
 
 	public CDArkiv(int maksAntall) {
@@ -32,7 +31,7 @@ public class CDArkiv implements CDArkivADT {
 	 * Hjelpe metode for å utvide kapasiteten til CDArkiv tabellen.
 	 */
 	private void utvidKapasitet() {
-		CD[] hjelpetabell = new CD[(int) (1.1 * cdTabell.length)];
+		CD[] hjelpetabell = new CD[(int) Math.ceil(1.1 * cdTabell.length)];
 		for (int i = 0; i < cdTabell.length; i++) {
 			hjelpetabell[i] = cdTabell[i];
 		}

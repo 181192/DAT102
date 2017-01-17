@@ -14,9 +14,10 @@ public class CDArkivKlient {
 
 		CDArkivADT cda = new CDArkiv();
 		Meny meny = new Meny(cda);
-
-		// alternativ:
-		Meny meny2 = new Meny(cda);
 		meny.start();
+
+//		alternativ:
+//		Meny meny2 = new Meny(cda);
+//		meny.start();
 	}
 } // class

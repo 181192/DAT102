@@ -16,14 +16,14 @@ import no.hib.data102.adt.CDArkivADT;
  *
  */
 public class Fil {
-	private final String SKILLE = "#"; // Eventuelt ha som parameter i metodene
+	private static final String SKILLE = "#"; // Eventuelt ha som parameter i metodene
 
 	/**
 	 * Lese et CDArkiv fra tekstfil
 	 * 
 	 * @param filnavn
 	 */
-	public CDArkivADT lesFraFil(String filnavn) {
+	public static CDArkivADT lesFraFil(String filnavn) {
 
 		CDArkivADT cda = null;
 
@@ -87,11 +87,11 @@ public class Fil {
 	 * @param filnavn
 	 * @param utvid
 	 */
-	public void skrivTilFil(CDArkivADT cdarkiv, String filnavn, boolean utvid) {
+	public static void skrivTilFil(CDArkivADT cdarkiv, String filnavn, boolean utvid) {
 		// Kan sløyfe siste paramenter...
 		int antall = cdarkiv.hentAntall();
 		try {
-			FileWriter cdaFil = new FileWriter(filnavn, false);
+			FileWriter cdaFil = new FileWriter(filnavn, utvid);
 
 			PrintWriter utfil = new PrintWriter(cdaFil);
 
