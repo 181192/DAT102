@@ -16,7 +16,8 @@ import no.hib.data102.adt.CDArkivADT;
  *
  */
 public class Fil {
-	private static final String SKILLE = "#"; // Eventuelt ha som parameter i metodene
+	private static final String SKILLE = "#"; // Eventuelt ha som parameter i
+												// metodene
 
 	/**
 	 * Lese et CDArkiv fra tekstfil
@@ -49,9 +50,9 @@ public class Fil {
 				String artist = felt[1];
 				String tittel = felt[2];
 				int lanseringsaar = Integer.parseInt(felt[3]);
-//				int sjanger = Integer.parseInt(felt[4]);
+				// int sjanger = Integer.parseInt(felt[4]);
 				Sjanger sj = Sjanger.finnSjanger(felt[4]);
-				
+
 				String plateselskap = felt[5];
 				// ...
 				CD cd = new CD(cdNr, artist, tittel, lanseringsaar, sj, plateselskap);
