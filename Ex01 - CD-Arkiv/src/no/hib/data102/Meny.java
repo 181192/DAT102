@@ -22,28 +22,80 @@ public class Meny {
 		this.cda = cda;
 	}
 
+	/**
+	 * Hent metode
+	 *
+	 * @return tekstgr
+	 */
 	public Tekstgrensesnitt getTekstgr() {
 		return tekstgr;
 	}
 
+	/**
+	 * Sett metode
+	 *
+	 * @param tekstgr
+	 *            setter tekstgr
+	 */
 	public void setTekstgr(Tekstgrensesnitt tekstgr) {
 		this.tekstgr = tekstgr;
 	}
 
+	/**
+	 * Hent metode
+	 *
+	 * @return cda
+	 */
 	public CDArkivADT getCda() {
 		return cda;
 	}
 
+	/**
+	 * Sett metode
+	 *
+	 * @param cda
+	 *            setter cda
+	 */
 	public void setCda(CDArkivADT cda) {
 		this.cda = cda;
 	}
 
+	/**
+	 * Hent metode
+	 *
+	 * @return valg
+	 */
 	public int getValg() {
 		return valg;
 	}
 
+	/**
+	 * Sett metode
+	 *
+	 * @param valg
+	 *            setter valg
+	 */
 	public void setValg(int valg) {
 		this.valg = valg;
+	}
+
+	/**
+	 * Hent metode
+	 *
+	 * @return tast
+	 */
+	public Scanner getTast() {
+		return tast;
+	}
+
+	/**
+	 * Sett metode
+	 *
+	 * @param tast
+	 *            setter tast
+	 */
+	public void setTast(Scanner tast) {
+		this.tast = tast;
 	}
 
 	/**
@@ -53,8 +105,12 @@ public class Meny {
 		tast = new Scanner(System.in);
 		hovedmeny();
 		tast.close();
-	}
+	} // metode
 
+	/**
+	 * Hovedmeny for å lese eller opprette eksisterende arkiv
+	 * 
+	 */
 	public void hovedmeny() {
 		String meny = "\n1 - Les eksisterende arkiv fra fil" + "\n2 - Opprett nytt arkiv" + "\n3 - Avslutt"
 				+ "\n\nValg: ";
@@ -79,11 +135,15 @@ public class Meny {
 				System.out.println("Ukjent menyvalg");
 			}
 		} while (valg != 3);
-	}
+	} // metode
 
+	/**
+	 * Undermeny for felles valg i menyen
+	 * 
+	 */
 	public void ValgArkiv() {
-		String meny = "\n1 - Legg til ny CD" + "\n2 - Slett en CD" + "\n3 - Søk på tittel"
-				+ "\n4 - Søk på artist" + "\n5 - Skriv ut statistikk" + "\n6 - Tilbake til hovedmeny" + "\n\nValg: ";
+		String meny = "\n1 - Legg til ny CD" + "\n2 - Slett en CD" + "\n3 - Søk på tittel" + "\n4 - Søk på artist"
+				+ "\n5 - Skriv ut statistikk" + "\n6 - Tilbake til hovedmeny" + "\n\nValg: ";
 
 		do {
 			System.out.print(meny);
@@ -124,8 +184,12 @@ public class Meny {
 				System.out.println("Ukjent menyvalg");
 			}
 		} while (valg != 6);
-	}
+	} // metode
 
+	/**
+	 * Metode for å opprette nytt arkiv
+	 * 
+	 */
 	public void OpprettNyttArkivMeny() {
 
 		System.out.print("Oppgi navn på arkiv: ");
@@ -136,9 +200,12 @@ public class Meny {
 
 		ValgArkiv();
 		Fil.skrivTilFil(cda, navnPaaArkiv + ".txt", false);
+	} // metode
 
-	}
-
+	/**
+	 * Metode for å lese og bruke eksisterende arkiv meny
+	 * 
+	 */
 	public void BrukEksisterendeArkivMeny() {
 		System.out.print("Oppgi fil på arkiv: ");
 		String filnavn = tast.next();
@@ -147,6 +214,5 @@ public class Meny {
 
 		ValgArkiv();
 		Fil.skrivTilFil(cda, filnavn + ".txt", false);
-	}
-
+	} // metode
 } // class
