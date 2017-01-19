@@ -31,7 +31,7 @@ public class Tekstgrensesnitt {
 		String tittel = tast.next();
 
 		System.out.print("Oppgi laseringsår: ");
-		int lanseringsår = tast.nextInt();
+		int lanseringsaar = tast.nextInt();
 
 		System.out.print("Oppgi sjanger: ");
 		Sjanger sjanger = Sjanger.finnSjanger(tast.next());
@@ -39,7 +39,7 @@ public class Tekstgrensesnitt {
 		System.out.print("Oppgi plateselskap: ");
 		String plateselskap = tast.next();
 
-		CD nycd = new CD(cdNr, artist, tittel, lanseringsår, sjanger, plateselskap);
+		CD nycd = new CD(cdNr, artist, tittel, lanseringsaar, sjanger, plateselskap);
 		
 		return nycd;
 	}
