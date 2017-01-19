@@ -90,10 +90,9 @@ public class CDArkiv implements CDArkivADT {
 	public CD[] sokTittel(String delstreng) {
 		CD[] resultatTittel = new CD[antall];
 		int i = 0;
-		boolean funnet = false;
 
 		while (i < antall) {
-			if (cdTabell[i].getTittel().contains(delstreng)) {
+			if (cdTabell[i].getTittel().toLowerCase().contains(delstreng.toLowerCase())) {
 				resultatTittel[i] = cdTabell[i];
 			}
 			i++;
@@ -106,9 +105,8 @@ public class CDArkiv implements CDArkivADT {
 	public CD[] sokArtist(String delstreng) {
 		CD[] resultatArtist = new CD[antall];
 		int i = 0;
-		boolean funnet = false;
 
-		while (!funnet && i < antall) {
+		while (i < antall) {
 			if (cdTabell[i].getArtist().contains(delstreng)) {
 				resultatArtist[i] = cdTabell[i];
 			}
