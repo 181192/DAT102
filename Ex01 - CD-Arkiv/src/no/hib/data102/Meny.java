@@ -15,6 +15,7 @@ public class Meny {
 	private Tekstgrensesnitt tekstgr;
 	private CDArkivADT cda;
 	private int valg;
+	private Scanner tast;
 
 	public Meny(CDArkivADT cda) {
 		tekstgr = new Tekstgrensesnitt();
@@ -37,17 +38,24 @@ public class Meny {
 		this.cda = cda;
 	}
 
+	public int getValg() {
+		return valg;
+	}
+
+	public void setValg(int valg) {
+		this.valg = valg;
+	}
+
 	/**
 	 * Starter menyen!
 	 */
 	public void start() {
-
-		Scanner tast = new Scanner(System.in);
-		hovedmeny(tast);
-
+		tast = new Scanner(System.in);
+		hovedmeny();
+		tast.close();
 	}
 
-	public void hovedmeny(Scanner tast) {
+	public void hovedmeny() {
 		String meny = "\n1 - Les eksisterende arkiv fra fil" + "\n2 - Opprett nytt arkiv" + "\n3 - Avslutt"
 				+ "\n\nValg: ";
 
@@ -58,12 +66,12 @@ public class Meny {
 			switch (valg) {
 			case 1:
 				// Les eksisterende arkiv fra fil
-				BrukEksisterendeArkivMeny(tast);
+				BrukEksisterendeArkivMeny();
 
 				break;
 			case 2:
 				// Opprett nytt arkiv
-				OpprettNyttArkivMeny(tast);
+				OpprettNyttArkivMeny();
 				break;
 			case 3: // Avslutt
 				break;
@@ -73,9 +81,9 @@ public class Meny {
 		} while (valg != 3);
 	}
 
-	public void ValgArkiv(Scanner tast) {
-		String meny = "\n1 - Legg til ny CD" + "\n2 - Slett en CD" + "\n3 - Vis en CD" + "\n4 - Søk på tittel"
-				+ "\n5 - Søk på artist" + "\n6 - Skriv ut statistikk" + "\n7 - Tilbake til hovedmeny" + "\n\nValg: ";
+	public void ValgArkiv() {
+		String meny = "\n1 - Legg til ny CD" + "\n2 - Slett en CD" + "\n3 - Søk på tittel"
+				+ "\n4 - Søk på artist" + "\n5 - Skriv ut statistikk" + "\n6 - Tilbake til hovedmeny" + "\n\nValg: ";
 
 		do {
 			System.out.print(meny);
@@ -94,36 +102,31 @@ public class Meny {
 				cda.slettCd(cdNr);
 				break;
 			case 3:
-				// Vis en CD
-				System.out.print("Oppgi CD-nummer");
-				// vent med denne...
-				break;
-			case 4:
 				// Søk på tittel
 				System.out.print("Søk på tittel: ");
 				String delstreng = tast.next();
 				tekstgr.skrivUtCdDelstrengITittel(cda, delstreng);
 				break;
-			case 5:
+			case 4:
 				// Søk på artist
 				System.out.print("Søk på artist: ");
 				String delstreng2 = tast.next();
 				tekstgr.skrivUtCdArtist(cda, delstreng2);
 				break;
-			case 6:
+			case 5:
 				// Skriv ut statistikk
 				tekstgr.skrivUtStatistikk(cda);
 				break;
-			case 7:
+			case 6:
 				// Avslutt
 				break;
 			default:
 				System.out.println("Ukjent menyvalg");
 			}
-		} while (valg != 7);
+		} while (valg != 6);
 	}
 
-	public void OpprettNyttArkivMeny(Scanner tast) {
+	public void OpprettNyttArkivMeny() {
 
 		System.out.print("Oppgi navn på arkiv: ");
 		String navnPaaArkiv = tast.next();
@@ -131,17 +134,18 @@ public class Meny {
 		int plasser = tast.nextInt();
 		cda = new CDArkiv(plasser);
 
-		ValgArkiv(tast);
+		ValgArkiv();
 		Fil.skrivTilFil(cda, navnPaaArkiv + ".txt", false);
 
 	}
 
-	public void BrukEksisterendeArkivMeny(Scanner tast) {
+	public void BrukEksisterendeArkivMeny() {
 		System.out.print("Oppgi fil på arkiv: ");
 		String filnavn = tast.next();
-		Fil.lesFraFil(filnavn + ".txt");
 
-		ValgArkiv(tast);
+		cda = Fil.lesFraFil(filnavn + ".txt");
+
+		ValgArkiv();
 		Fil.skrivTilFil(cda, filnavn + ".txt", false);
 	}
 

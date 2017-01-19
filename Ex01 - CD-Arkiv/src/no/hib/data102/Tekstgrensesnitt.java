@@ -11,13 +11,15 @@ import no.hib.data102.adt.CDArkivADT;
  *
  */
 public class Tekstgrensesnitt {
+	private Scanner tast;
+
 	/**
 	 * Lese opplysningene om en CD fra tastatur
 	 * 
 	 * @return
 	 */
 	public CD lesCd() {
-		Scanner tast = new Scanner(System.in);
+		tast = new Scanner(System.in);
 
 		System.out.print("Oppgi CD-Nummer: ");
 		int cdNr = tast.nextInt();
@@ -38,7 +40,7 @@ public class Tekstgrensesnitt {
 		String plateselskap = tast.next();
 
 		CD nycd = new CD(cdNr, artist, tittel, lanseringsår, sjanger, plateselskap);
-
+		
 		return nycd;
 	}
 
@@ -60,8 +62,10 @@ public class Tekstgrensesnitt {
 	public void skrivUtCdDelstrengITittel(CDArkivADT cda, String delstreng) {
 		CD[] cdsamling = cda.sokTittel(delstreng);
 
-		for (int i = 0; i < cdsamling.length; i++) {
-			System.out.println(cdsamling[i].getTittel());
+		for (int i = 0; i < cda.hentAntall(); i++) {
+			if (cdsamling[i] != null) {
+				System.out.println(cdsamling[i].getTittel());
+			}
 		}
 	}
 
@@ -73,9 +77,11 @@ public class Tekstgrensesnitt {
 	public void skrivUtCdArtist(CDArkivADT cda, String delstreng) {
 		CD[] cdsamling = cda.sokArtist(delstreng);
 
-		System.out.println("CD'er av " + cdsamling[0].getArtist() + "\n");
-		for (int i = 0; i < cdsamling.length; i++) {
-			System.out.println(cdsamling[i].toString());
+		System.out.println("\nFinner artister på " + delstreng + " : ");
+		for (int i = 0; i < cda.hentAntall(); i++) {
+			if (cdsamling[i] != null) {
+				System.out.println(cdsamling[i].toString());
+			}
 		}
 	}
 

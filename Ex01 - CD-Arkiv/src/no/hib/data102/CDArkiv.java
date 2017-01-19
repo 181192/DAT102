@@ -53,8 +53,8 @@ public class CDArkiv implements CDArkivADT {
 		boolean tilstand = false;
 		int posisjon = sokCdNr(cdNr);
 		if (posisjon != -1) {
-			cdTabell[posisjon] = cdTabell[antall];
-			cdTabell[antall] = null;
+			cdTabell[posisjon] = cdTabell[antall - 1];
+			cdTabell[antall - 1] = null;
 			antall--;
 			trimTab(cdTabell, antall); // må teste om dette funker, bare en
 										// tanke...
@@ -92,12 +92,13 @@ public class CDArkiv implements CDArkivADT {
 		int i = 0;
 		boolean funnet = false;
 
-		while (!funnet && i < antall) {
+		while (i < antall) {
 			if (cdTabell[i].getTittel().contains(delstreng)) {
 				resultatTittel[i] = cdTabell[i];
-				funnet = true;
 			}
+			i++;
 		}
+		trimTab(resultatTittel, antall);
 		return resultatTittel;
 	}
 
@@ -110,9 +111,10 @@ public class CDArkiv implements CDArkivADT {
 		while (!funnet && i < antall) {
 			if (cdTabell[i].getArtist().contains(delstreng)) {
 				resultatArtist[i] = cdTabell[i];
-				funnet = true;
 			}
+			i++;
 		}
+		trimTab(resultatArtist, antall);
 		return resultatArtist;
 	}
 
