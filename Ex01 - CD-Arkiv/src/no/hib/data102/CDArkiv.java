@@ -107,7 +107,7 @@ public class CDArkiv implements CDArkivADT {
 		int i = 0;
 
 		while (i < antall) {
-			if (cdTabell[i].getArtist().contains(delstreng)) {
+			if (cdTabell[i].getArtist().toLowerCase().contains(delstreng.toLowerCase())) {
 				resultatArtist[i] = cdTabell[i];
 			}
 			i++;
