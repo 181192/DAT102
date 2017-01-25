@@ -1,8 +1,13 @@
 package no.hib.dat102.stack;
 
-//Representerer en node.
-//************************************************************
-
+/**
+ * Representerer en node.
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ * @param <T>
+ *            Generisk type
+ */
 public class LinearNode<T> {
 	private LinearNode<T> next;
 	private T element;

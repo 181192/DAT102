@@ -2,6 +2,14 @@ package no.hib.dat102.stack;
 
 import no.hib.dat102.adt.StackADT;
 
+/**
+ * Representerer en linket stabel, klassen implimenterer også StackADT
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ * @param <T>
+ *            Generisk type
+ */
 public class LinkedStack<T> implements StackADT<T> {
 	private int count;
 	private LinearNode<T> top;
@@ -52,5 +60,5 @@ public class LinkedStack<T> implements StackADT<T> {
 	public int size() {
 		return count;
 	}
-	
+
 } // class
