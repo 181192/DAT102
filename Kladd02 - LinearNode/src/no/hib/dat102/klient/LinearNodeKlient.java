@@ -25,6 +25,13 @@ public class LinearNodeKlient {
 
 		// 2. Anta at listen har fått over 10 noder. Lag en ny node
 		// som er nr.10 (med objekt "Person 10")
+		sta.push(tab[4]);
+		sta.push(tab[5]);
+		sta.push(tab[6]);
+		sta.push(tab[7]);
+		sta.push(tab[8]);
+		sta.push(tab[9]);
+		
 		String p10 = "Person 10";
 
 		// 3. Legg til ny node helt til slutt i listen med objekt "Sistemann"
