@@ -165,7 +165,11 @@ public class Meny {
 				// Slett en CD
 				System.out.print("Oppgi CD-nummer: ");
 				int cdNr = tast.nextInt();
-				cda.slettCd(cdNr);
+				if (cda.slettCd(cdNr)) {
+					System.out.println("Slettet CD, med cd-nummer: " + cdNr);
+				} else {
+					System.out.println("CD-nr: " + cdNr + " er ikke slettet");
+				}
 				break;
 			case 3:
 				// Søk på tittel

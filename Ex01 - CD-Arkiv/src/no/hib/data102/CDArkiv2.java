@@ -28,7 +28,7 @@ public class CDArkiv2 implements CDArkivADT {
 		LinearNode<CD> node = start;
 		CD[] cdtabell = new CD[antall];
 		int i = 0;
-		while (node != null) {
+		while (i < antall && node != null) {
 			cdtabell[i] = node.getElement();
 			node = node.getNeste();
 			i++;
@@ -47,13 +47,14 @@ public class CDArkiv2 implements CDArkivADT {
 
 	private LinearNode<CD> finnCd(int cdNr) {
 		LinearNode<CD> p = start;
-		LinearNode<CD> q = null;
-		while (p.getNeste() != null) {
+		LinearNode<CD> q = start;
+		while (p != null) {
 			if (p.getElement().getCdNr() == cdNr) {
 				return q;
 			}
 			q = p;
 			p = p.getNeste();
+			
 		}
 		return null;
 	}
@@ -70,6 +71,7 @@ public class CDArkiv2 implements CDArkivADT {
 		// 2. Slette noden/cd'en
 		if (resultat != null) {
 			resultat.setNeste(resultat.getNeste());
+			resultat = start;
 			antall--;
 			tilstand = true;
 		}
@@ -83,10 +85,11 @@ public class CDArkiv2 implements CDArkivADT {
 		}
 		CD[] c = new CD[antall];
 		LinearNode<CD> p = start;
+		LinearNode<CD> q = start;
 		int i = 0;
 
 		if (type.equals("Tittel")) {
-			while (p != null) {
+			while (i < antall && p != null) {
 				if (p.getElement().getTittel().contains(soek)) {
 					c[i] = p.getElement();
 					p = p.getNeste();
@@ -94,7 +97,7 @@ public class CDArkiv2 implements CDArkivADT {
 				}
 			}
 		} else if (type.equals("Artist")) {
-			while (p != null) {
+			while (i < antall && p != null) {
 				if (p.getElement().getArtist().contains(soek)) {
 					c[i] = p.getElement();
 					p = p.getNeste();
@@ -124,11 +127,15 @@ public class CDArkiv2 implements CDArkivADT {
 	public int hentAntall(Sjanger sjanger) {
 		int antallCDISjanger = 0;
 		LinearNode<CD> p = start;
-		while (p != null) {
-			if (p.getElement().getSjanger() == sjanger) {
+		LinearNode<CD> q = start;
+		int teller = 1;
+		while (teller <= antall) {
+			if (q.getElement().getSjanger() == sjanger) {
 				antallCDISjanger++;
 			}
+			q = p;
 			p = p.getNeste();
+			teller++;
 		}
 		return antallCDISjanger;
 	}
