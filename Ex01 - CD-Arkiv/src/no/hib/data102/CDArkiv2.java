@@ -59,7 +59,7 @@ private LinearNode<CD> start;
 		LinearNode<CD> resultat= finnCd(cdNr);
 		
 		// 2. Slette noden/cd'en
-		if (resultat.getElement().getCdNr() == cdNr) {
+		if (resultat != null) {
 			resultat = resultat.getNeste();
 			antall--;
 			tilstand = true;
