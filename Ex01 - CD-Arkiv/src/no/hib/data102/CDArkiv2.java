@@ -24,8 +24,17 @@ private LinearNode<CD> start;
 	
 	@Override
 	public CD[] hentCDTabell() {
-		// TODO Auto-generated method stub
-		return null;
+		LinearNode<CD> node = start;
+		CD[] cdtabell = new CD[antall];
+		int i = 0;
+		
+		while (node != null) {
+			cdtabell[i] = node.getElement();
+			node = node.getNeste();
+		}
+		i++;
+		
+		return cdtabell;
 	}
 
 	@Override
