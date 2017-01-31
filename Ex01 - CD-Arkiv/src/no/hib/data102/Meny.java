@@ -122,12 +122,18 @@ public class Meny {
 			switch (valg) {
 			case 1:
 				// Les eksisterende arkiv fra fil
-				BrukEksisterendeArkivMeny();
-
+				System.out.print("Oppgi fil på arkiv: ");
+				String filnavn = tast.next();
+				cda = Fil.lesFraFil(filnavn + ".txt");
+				ValgArkiv();
+				Fil.skrivTilFil(cda, filnavn + ".txt", false);
 				break;
 			case 2:
 				// Opprett nytt arkiv
-				OpprettNyttArkivMeny();
+				System.out.print("Oppgi navn på arkiv: ");
+				String navnPaaArkiv = tast.next();
+				ValgArkiv();
+				Fil.skrivTilFil(cda, navnPaaArkiv + ".txt", false);
 				break;
 			case 3: // Avslutt
 				break;
@@ -184,35 +190,5 @@ public class Meny {
 				System.out.println("Ukjent menyvalg");
 			}
 		} while (valg != 6);
-	} // metode
-
-	/**
-	 * Metode for å opprette nytt arkiv
-	 * 
-	 */
-	public void OpprettNyttArkivMeny() {
-
-		System.out.print("Oppgi navn på arkiv: ");
-		String navnPaaArkiv = tast.next();
-		System.out.print("Hvor stort er arkivet? (heltall) ");
-		int plasser = tast.nextInt();
-		cda = new CDArkiv(plasser);
-
-		ValgArkiv();
-		Fil.skrivTilFil(cda, navnPaaArkiv + ".txt", false);
-	} // metode
-
-	/**
-	 * Metode for å lese og bruke eksisterende arkiv meny
-	 * 
-	 */
-	public void BrukEksisterendeArkivMeny() {
-		System.out.print("Oppgi fil på arkiv: ");
-		String filnavn = tast.next();
-
-		cda = Fil.lesFraFil(filnavn + ".txt");
-
-		ValgArkiv();
-		Fil.skrivTilFil(cda, filnavn + ".txt", false);
 	} // metode
 } // class

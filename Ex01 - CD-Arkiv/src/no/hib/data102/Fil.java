@@ -40,7 +40,9 @@ public class Fil {
 			int n = Integer.parseInt(linje);
 
 			// Oppretter CDarkiv
-			cda = new CDArkiv(n);
+			// For CDArkiv velger vi "n" som input, for CDArkiv2 har vi ingen
+			// input!
+			cda = new CDArkiv2();
 
 			// 4 - Les postene, en hel post om gangen
 			for (int i = 0; i < n; i++) {
@@ -50,19 +52,15 @@ public class Fil {
 				String artist = felt[1];
 				String tittel = felt[2];
 				int lanseringsaar = Integer.parseInt(felt[3]);
-				// int sjanger = Integer.parseInt(felt[4]);
 				Sjanger sj = Sjanger.finnSjanger(felt[4]);
-
 				String plateselskap = felt[5];
-				// ...
+
 				CD cd = new CD(cdNr, artist, tittel, lanseringsaar, sj, plateselskap);
 
 				cda.leggTilCd(cd);
 			}
 
-			/*
-			 * 4 - Lukk filen
-			 */
+			// 5 - Lukk filen
 			innfil.close();
 
 		} catch (FileNotFoundException unntak) {
