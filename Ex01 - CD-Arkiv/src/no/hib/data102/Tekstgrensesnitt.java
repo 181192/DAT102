@@ -94,10 +94,8 @@ public class Tekstgrensesnitt {
 	 */
 	public void skrivUtStatistikk(CDArkivADT cda) {
 		System.out.println("Antall CD'er i arkivet: " + cda.hentAntall());
-		System.out.println("Antall CD'er med sjangeren Rock: " + cda.hentAntall(Sjanger.finnSjanger("rock")));
-		System.out.println("Antall CD'er med sjangeren Pop: " + cda.hentAntall(Sjanger.finnSjanger("pop")));
-		System.out.println("Antall CD'er med sjangeren Opera: " + cda.hentAntall(Sjanger.finnSjanger("opera")));
-		System.out.println("Antall CD'er med sjangeren Classic: " + cda.hentAntall(Sjanger.finnSjanger("classic")));
-
+		for(Sjanger s : Sjanger.values()) {
+			System.out.println("Antall CD'er med sjangeren "+s.name()+": " + cda.hentAntall(Sjanger.finnSjanger(s.name())));
+		}
 	}
 } // class
