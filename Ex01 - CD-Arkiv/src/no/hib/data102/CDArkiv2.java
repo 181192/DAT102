@@ -71,7 +71,7 @@ public class CDArkiv2 implements CDArkivADT {
 
 		// 2. Slette noden/cd'en
 		if (resultat != null) {
-			resultat = resultat.getNeste();
+			resultat.setNeste(resultat.getNeste());
 			antall--;
 			tilstand = true;
 		}
@@ -132,8 +132,6 @@ public class CDArkiv2 implements CDArkivADT {
 			}
 			p = p.getNeste();
 		}
-
-		// TODO Auto-generated method stub
 		return antallCDISjanger;
 	}
 
