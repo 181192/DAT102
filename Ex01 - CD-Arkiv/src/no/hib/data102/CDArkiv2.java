@@ -134,7 +134,7 @@ public class CDArkiv2 implements CDArkivADT {
 		}
 
 		// TODO Auto-generated method stub
-		return 0;
+		return antallCDISjanger;
 	}
 
 	/**
