@@ -79,7 +79,7 @@ public class CDArkiv2 implements CDArkivADT {
 		return tilstand;
 	}
 
-	private CD[] finnFlerCd(String type, String soek) {
+	private CD[] finnFlerCd(String type, String soek) throws EmptyCollectionException {
 		if (erTom()) {
 			throw new EmptyCollectionException("CDArkiv");
 		}
