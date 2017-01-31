@@ -49,12 +49,13 @@ public class CDArkiv2 implements CDArkivADT {
 
 	private LinearNode<CD> finnCd(int cdNr) {
 		LinearNode<CD> p = start;
-		while (p != null) {
+		LinearNode<CD> q = null;
+		while (p.getNeste() != null) {
 			if (p.getElement().getCdNr() == cdNr) {
-				return p;
-			} else {
-				p = p.getNeste();
+				return q;
 			}
+			q = p;
+			p = p.getNeste();
 		}
 		return null;
 	}
@@ -123,6 +124,15 @@ public class CDArkiv2 implements CDArkivADT {
 
 	@Override
 	public int hentAntall(Sjanger sjanger) {
+		int antallCDISjanger = 0;
+		LinearNode<CD> p = start;
+		while (p != null) {
+			if (p.getElement().getSjanger() == sjanger) {
+				antallCDISjanger++;
+			}
+			p = p.getNeste();
+		}
+
 		// TODO Auto-generated method stub
 		return 0;
 	}
