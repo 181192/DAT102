@@ -28,13 +28,11 @@ public class CDArkiv2 implements CDArkivADT {
 		LinearNode<CD> node = start;
 		CD[] cdtabell = new CD[antall];
 		int i = 0;
-
 		while (node != null) {
 			cdtabell[i] = node.getElement();
 			node = node.getNeste();
 			i++;
 		}
-
 		return cdtabell;
 	}
 
