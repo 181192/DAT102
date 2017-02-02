@@ -125,6 +125,11 @@ public class TestSirkualaerKoe {
 		assertEquals(3, koe.antall());
 	}
 
+	/**
+	 * Forsoeker å ta ut av koeen av en tom koe, skal gi "underflow exeption"
+	 * 
+	 * @throws EmptyCollectionException Expected exception
+	 */
 	@Test(expected = EmptyCollectionException.class)
 	public final void UtKoeFraTomKoeUnderflowed() throws EmptyCollectionException {
 		koe.utKoe();
