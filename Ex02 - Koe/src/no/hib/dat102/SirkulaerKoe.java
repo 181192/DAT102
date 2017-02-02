@@ -69,7 +69,7 @@ public class SirkulaerKoe<T> implements KoeADT<T> {
 	}
 
 	@Override
-	public T foerste() {
+	public T foerste() throws EmptyCollectionException {
 		T resultat = null;
 		if (erTom()) {
 			throw new EmptyCollectionException("Koe");
