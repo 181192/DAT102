@@ -1,6 +1,3 @@
-/**
- * 
- */
 package no.hib.data102;
 
 import no.hib.data102.adt.CDArkivADT;
