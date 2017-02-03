@@ -134,4 +134,15 @@ public class TestSirkualaerKoe {
 	public final void UtKoeFraTomKoeUnderflowed() throws EmptyCollectionException {
 		koe.utKoe();
 	}
+	
+	/**
+	 * Tester utvid() metoden (standardkonstruktøren oppretter en tabell med 100 plasser)
+	 */
+	@Test
+	public final void utvidUtvider() {
+		for(int i = 0; i < 110; i++) {
+			koe.innKoe(c0);
+		}
+		assertEquals(110, koe.antall());
+	}
 }
