@@ -44,7 +44,7 @@ public class TestKjedetMengde {
 		mengde.leggTil(c2);
 		assertEquals(3, mengde.antall());
 	}
-	
+
 	/**
 	 * Skjekker om mengden inneholder ett nytt element
 	 */
@@ -53,6 +53,7 @@ public class TestKjedetMengde {
 		mengde.leggTil(c0);
 		assertTrue(mengde.inneholder(c0));
 	}
+
 	/**
 	 * Legger til flere nye elementer, skjekker mengden innholder de.
 	 */
@@ -70,9 +71,8 @@ public class TestKjedetMengde {
 		} catch (EmptyCollectionException e) {
 			fail("UtMengde feilet uventet" + e.getMessage());
 		}
-
 	}
-	
+
 	/**
 	 * Skjekker om mengden kan legge til duplikater, forventer feil
 	 */
@@ -85,7 +85,5 @@ public class TestKjedetMengde {
 		mengde.inneholder(c2);
 		assertEquals(c2, mengde.fjern(c2));
 		assertTrue(mengde.inneholder(c2));
-
-	
 	}
 }
