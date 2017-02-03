@@ -1,4 +1,4 @@
-package no.hib.dat102.stack;
+package no.hib.dat102;
 
 /**
  * Unntaks klasse for håndtering av tomme stabler
