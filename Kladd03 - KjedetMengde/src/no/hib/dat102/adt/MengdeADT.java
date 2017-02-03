@@ -2,7 +2,7 @@ package no.hib.dat102.adt;
 
 import java.util.Iterator;
 
-import no.hib.dat102.EmptyCollectionException;
+import no.hib.dat102.exception.EmptyCollectionException;
 
 /**
  * Inferface ADT for mengde. En menge er en samling ulike elementer av samme

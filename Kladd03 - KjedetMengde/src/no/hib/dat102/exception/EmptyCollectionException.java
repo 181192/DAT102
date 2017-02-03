@@ -1,4 +1,4 @@
-package no.hib.dat102;
+package no.hib.dat102.exception;
 
 /**
  * Unntaks klasse for håndtering av tomme stabler
