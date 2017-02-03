@@ -40,6 +40,7 @@ public interface MengdeADT<T> {
 	public T fjernTilfeldig() throws EmptyCollectionException;
 
 	/**
+	 * Fjerner elementet fra mengden
 	 * 
 	 * @param element
 	 * @return Returnerer element
@@ -48,15 +49,51 @@ public interface MengdeADT<T> {
 	 */
 	public T fjern(T element) throws EmptyCollectionException;
 
+	/**
+	 * Union mellom to mengder
+	 * 
+	 * @param m2
+	 *            mengde som skal inn i union
+	 * @return en mengde som inneholder begge mengdene
+	 */
 	public MengdeADT<T> union(MengdeADT<T> m2);
 
+	/**
+	 * Skjekker om en mengde innholder ett element
+	 * 
+	 * @param element
+	 *            Element som skal skjekkes
+	 * @return true hvis mengden inneholder elementet
+	 */
 	public boolean inneholder(T element);
 
-	boolean erLik(MengdeADT<T> m2);
+	/**
+	 * Skjekker om to mengder er like
+	 * 
+	 * @param m2
+	 *            Mengde som skal sammenlignes
+	 * @return True visst mengdene inneholder det samme
+	 */
+	public boolean erLik(MengdeADT<T> m2);
 
-	boolean erTom();
+	/**
+	 * Returerer boolean verdi hvis mengden er tom
+	 * 
+	 * @return true hvis mengden er tom
+	 */
+	public boolean erTom();
 
-	int antall();
+	/**
+	 * Antall elementer i mengden
+	 * 
+	 * @return antall elementer
+	 */
+	public int antall();
 
-	Iterator<T> oppramser();
+	/**
+	 * Itererer gjennom en mengde
+	 * 
+	 * @return
+	 */
+	public Iterator<T> oppramser();
 }
