@@ -83,11 +83,11 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 	public MengdeADT<T> union(MengdeADT<T> m2) {
 		KjedetMengde<T> begge = new KjedetMengde<T>();
 		LinearNode<T> aktuell = start;
-		while(aktuell != null) {
+		while (aktuell != null) {
 			begge.leggTil(aktuell.getElement());
 			aktuell = aktuell.getNext();
 		} // while
-		
+
 		Iterator<T> teller = m2.oppramser();
 		while (teller.hasNext()) {
 			begge.leggTil(teller.next());
@@ -127,7 +127,6 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 
 	@Override
 	public Iterator<T> oppramser() {
-		return new KjedetIterator<T> (start, antall);
+		return (Iterator<T>) new KjedetIterator(start, antall);
 	}
-
 }

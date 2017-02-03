@@ -55,5 +55,4 @@ public class LinearNode<T> {
 	public void setElement(T elem) {
 		element = elem;
 	}
-
 }// class

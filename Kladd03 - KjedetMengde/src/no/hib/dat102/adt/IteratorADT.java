@@ -1,6 +1,6 @@
 package no.hib.dat102.adt;
 
-import no.hib.dat102.exception.NoSuchElementsException;
+import java.util.NoSuchElementException;
 
 public interface IteratorADT<T> {
 
@@ -16,8 +16,8 @@ public interface IteratorADT<T> {
 	 * element.
 	 * 
 	 * @return element hvis det eksisterer
-	 * @throws NoSuchElementsException
+	 * @throws NoSuchElementException
 	 *             hvis iterasjonen har naadd slutten, hvis harNext() er false
 	 */
-	public T next() throws NoSuchElementsException;
+	public T next() throws NoSuchElementException;
 }
