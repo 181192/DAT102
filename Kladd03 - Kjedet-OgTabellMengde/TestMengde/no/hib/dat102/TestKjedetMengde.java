@@ -1,6 +1,7 @@
 package no.hib.dat102;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -84,6 +85,6 @@ public class TestKjedetMengde {
 		mengde.leggTil(c3);
 		mengde.inneholder(c2);
 		assertEquals(c2, mengde.fjern(c2));
-		assertTrue(mengde.inneholder(c2));
+		assertFalse(mengde.inneholder(c2));
 	}
 }
