@@ -1,7 +1,9 @@
 package no.hib.dat102.mengde.tabell;
 
+import no.hib.dat102.exception.EmptyCollectionException;
 import no.hib.dat102.mengde.adt.*;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Random;
 
 public class TabellMengde<T> implements MengdeADT<T> {
@@ -9,6 +11,7 @@ public class TabellMengde<T> implements MengdeADT<T> {
 	//
 	private final static Random tilf = new Random();
 	private final static int STDK = 100;
+	private final static int NOT_FOUND = -1;
 	private int antall;
 	private T[] tab;
 
@@ -63,12 +66,26 @@ public class TabellMengde<T> implements MengdeADT<T> {
 	}
 
 	@Override
-	public T fjern(T element) {
-		// Søker etter og fjerner element.Retur med null ved ikke-funn
-		//
-		T svar = null;
-		// ...Fyll ut
-		return svar;
+	public T fjern(T element) throws EmptyCollectionException, NoSuchElementException {
+		int soek = NOT_FOUND;
+		if (erTom()) {
+			throw new EmptyCollectionException("Mengde");
+		}
+		for (int indeks = 0; indeks < antall && soek == NOT_FOUND; indeks++) {
+			if (tab[indeks].equals(element)) {
+				soek = indeks;
+			}
+		}
+		if (soek == NOT_FOUND) {
+			throw new NoSuchElementException();
+		}
+		T resultat = tab[soek];
+
+		tab[soek] = tab[antall - 1];
+		tab[antall - 1] = null;
+		antall--;
+
+		return resultat;
 	}
 
 	@Override
@@ -95,6 +112,18 @@ public class TabellMengde<T> implements MengdeADT<T> {
 	}
 
 	@Override
+	public MengdeADT<T> differens(MengdeADT<T> m2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public MengdeADT<T> snitt(MengdeADT<T> m2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public boolean inneholder(T element) {
 		int pos = -1;
 		for (int i = 0; (i < antall) && (pos == -1); i++) {
@@ -106,9 +135,26 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
 	@Override
 	public boolean erLik(MengdeADT<T> m2) {
-		boolean likeMengder = true;
+		boolean likeMengder = false;
 		T element;
-		// ...Fyll ut
+		TabellMengde<T> temp1 = new TabellMengde<T>();
+		TabellMengde<T> temp2 = new TabellMengde<T>();
+
+		if (antall() == m2.antall()) {
+			temp1.leggTilAlle(this);
+			temp2.leggTilAlle(m2);
+
+			Iterator<T> soek = m2.oppramser();
+
+			while (soek.hasNext()) {
+				element = soek.next();
+				if (temp1.inneholder(element)) {
+					temp1.fjern(element);
+					temp2.fjern(element);
+				}
+			}
+			likeMengder = (temp1.erTom() && temp2.erTom());
+		}
 		return likeMengder;
 	}
 

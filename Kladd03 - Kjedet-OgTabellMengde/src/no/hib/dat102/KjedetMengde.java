@@ -50,8 +50,25 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 
 	@Override
 	public T fjernTilfeldig() throws EmptyCollectionException {
-		// TODO Auto-generated method stub
-		return null;
+		LinearNode<T> forgjenger, aktuell;
+		T resultat = null;
+		if (!erTom()) {
+			int valg = rand.nextInt(antall) + 1;
+			if (valg == 1) {
+				resultat = start.getElement();
+				start = start.getNext();
+			} else {
+				forgjenger = start;
+				for (int nr = 2; nr < valg; nr++) {
+					forgjenger = forgjenger.getNext();
+				}
+				aktuell = forgjenger.getNext();
+				resultat = aktuell.getElement();
+				forgjenger.setNext(aktuell.getNext());
+			}
+			antall--;
+		} // if
+		return resultat;
 	}
 
 	@Override

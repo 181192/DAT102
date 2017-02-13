@@ -1,9 +1,9 @@
 package no.hib.dat102.mengde.klient;
 
-import no.hib.dat102.mengde.kjedet.KjedetMengde;
-import no.hib.dat102.mengde.tabell.TabellMengde;
-
+import java.util.Iterator;
 import java.util.Scanner;
+
+import no.hib.dat102.mengde.kjedet.KjedetMengde;
 
 public class Ordliste {
 
@@ -31,7 +31,7 @@ public class Ordliste {
 		// Leser inn ord
 		while (!streng.equals("zzz")) {
 
-			// ...Fyll ut
+			ordListe2.leggTil(streng);
 
 			System.out.print("Oppgi en streng, avslutt med zzz :");
 			streng = tastatur.nextLine();
@@ -42,20 +42,31 @@ public class Ordliste {
 		ordListeBegge = (KjedetMengde<String>) ordListe1.union(ordListe2);
 		System.out.println("Utskrift av unionen av begge ordlistene");
 
-		// ... Fyll ut
+		Iterator<String> teller = ordListeBegge.oppramser();
+		while (teller.hasNext()) {
+			System.out.println(teller.next().toString());
+		}
 
 		// Lager snittet av de to ordlistene
 		KjedetMengde<String> ordListeFelles = new KjedetMengde<String>();
 		ordListeFelles = (KjedetMengde<String>) ordListe1.snitt(ordListe2);
 		System.out.println("Utskrift av snittet av begge ordlistene");
-		// ...Fyll ut
+		
+		Iterator<String> teller1 = ordListeFelles.oppramser();
+		while (teller1.hasNext()) {
+			System.out.println(teller1.next().toString());
+		}
 
 		// Lager differansen av de to ordlistene
 		KjedetMengde<String> ordListeDiff = new KjedetMengde<String>();
 		ordListeDiff = (KjedetMengde<String>) ordListe1.differens(ordListe2);
 		System.out.println("Utskrift av differansen av begge ordlistene");
+		
+		Iterator<String> teller2 = ordListeDiff.oppramser();
+		while (teller2.hasNext()) {
+			System.out.println(teller2.next().toString());
+		}
 
-		// ....
-
+		tastatur.close();
 	}
 }

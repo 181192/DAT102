@@ -62,9 +62,33 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 	@Override
 	public T fjern(T element) {
 		boolean funnet = false;
-		LinearNode<T> forgjenger, aktuell = null;
+		LinearNode<T> forgjenger = null;
+		LinearNode<T> aktuell = null;
 		T resultat = null;
-		// ...Fyll ut
+		if (!erTom()) {
+			if (start.getElement().equals(element)) {// Sletter foran
+				resultat = start.getElement();
+				start = start.getNeste();
+				antall--;
+			} else { // Gjennomgår den kjedete strukturen
+				forgjenger = start;
+				aktuell = start.getNeste();
+				for (int søk = 1; søk < antall && !funnet; søk++) {
+					if (aktuell.getElement().equals(element))
+						funnet = true;
+					else {
+						forgjenger = aktuell;
+						aktuell = aktuell.getNeste();
+					}
+				}
+				if (funnet) {
+					resultat = aktuell.getElement(); // Sletter midt inni eller
+														// bak
+					forgjenger.setNeste(aktuell.getNeste());
+					antall--;
+				}
+			} // if –else
+		} // if ikke-tom
 		return resultat;
 	}//
 
@@ -91,6 +115,32 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 	}
 
 	@Override
+	public MengdeADT<T> differens(MengdeADT<T> m2) {
+		KjedetMengde<T> differensM = new KjedetMengde<T>();
+		T element;
+		Iterator<T> teller = this.oppramser();
+		while (teller.hasNext()) {
+			element = teller.next();
+			if (!m2.inneholder(element))
+				differensM.settInn(element);
+		}
+		return differensM;
+	}
+
+	@Override
+	public MengdeADT<T> snitt(MengdeADT<T> m2) {
+		KjedetMengde<T> snittM = new KjedetMengde<T>();
+		T element;
+		Iterator<T> teller = m2.oppramser();
+		while (teller.hasNext()) {
+			element = teller.next();
+			if (this.inneholder(element))
+				snittM.settInn(element);
+		}
+		return snittM;
+	}
+
+	@Override
 	public boolean inneholder(T element) {
 		boolean funnet = false;
 		LinearNode<T> aktuell = start;
@@ -108,7 +158,19 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 	public boolean erLik(MengdeADT<T> m2) {
 		boolean likeMengder = true;
 		T element = null;
-		// ...Fyll ut
+
+		if (antall() == m2.antall()) {
+			Iterator<T> teller = m2.oppramser();
+			while (teller.hasNext() && likeMengder) {
+				element = teller.next();
+				if (!this.inneholder(element)) {
+					likeMengder = false;
+				} // if
+			} // while
+		} // if
+		else {
+			likeMengder = false;
+		}
 		return likeMengder;
 	}
 
