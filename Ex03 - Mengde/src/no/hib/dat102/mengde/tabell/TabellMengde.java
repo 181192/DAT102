@@ -99,7 +99,6 @@ public class TabellMengde<T> implements MengdeADT<T> {
 		while (teller.hasNext()) {
 			begge.leggTil(teller.next());
 		}
-
 		return begge;
 	}
 
