@@ -65,7 +65,7 @@ public class OrdlisteTabell {
 		while (teller2.hasNext()) {
 			System.out.println(teller2.next().toString());
 		}
-
+		
 		tastatur.close();
 	}
 }
