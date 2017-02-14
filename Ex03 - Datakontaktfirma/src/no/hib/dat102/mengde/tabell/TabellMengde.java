@@ -1,12 +1,11 @@
 package no.hib.dat102.mengde.tabell;
 
-import no.hib.dat102.exception.EmptyCollectionException;
-import no.hib.dat102.mengde.adt.*;
-import no.hib.dat102.mengde.kjedet.KjedetMengde;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Random;
+
+import no.hib.dat102.exception.EmptyCollectionException;
+import no.hib.dat102.mengde.adt.MengdeADT;
 
 public class TabellMengde<T> implements MengdeADT<T> {
 	// ADT-en Mengde implementert som tabell
