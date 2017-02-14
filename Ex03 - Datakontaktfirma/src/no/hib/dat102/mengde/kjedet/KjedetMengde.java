@@ -1,13 +1,11 @@
 package no.hib.dat102.mengde.kjedet;
 
+import no.hib.dat102.exception.EmptyCollectionException;
+import no.hib.dat102.mengde.adt.*;
 //********************************************************************
 // Kjedet implementasjon av en mengde. 
 //********************************************************************
-import java.util.Iterator;
-import java.util.Random;
-
-import no.hib.dat102.exception.EmptyCollectionException;
-import no.hib.dat102.mengde.adt.MengdeADT;
+import java.util.*;
 
 public class KjedetMengde<T> implements MengdeADT<T> {
 	private static Random rand = new Random();

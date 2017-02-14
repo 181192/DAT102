@@ -41,6 +41,22 @@ public interface MengdeADT<T> {
 
 	/**
 	 * 
+	 * @param m2
+	 *            er mengden det skal lages differens med.
+	 * @return er differens av mengden m2 og this-mengden.
+	 */
+	MengdeADT<T> differens(MengdeADT<T> m2);
+
+	/**
+	 * 
+	 * @param m2
+	 *            er mengden det skal lages snitt med.
+	 * @return er snitt av mengden m2 og this-mengden.
+	 */
+	MengdeADT<T> snitt(MengdeADT<T> m2);
+
+	/**
+	 * 
 	 * @param element
 	 *            er det gitte elementet
 	 * @return sann hvis elementet fins ellers usann
