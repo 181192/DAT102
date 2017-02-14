@@ -1,5 +1,6 @@
 package no.hib.dat102.mengde.kjedet;
 
+import no.hib.dat102.exception.EmptyCollectionException;
 import no.hib.dat102.mengde.adt.*;
 //********************************************************************
 // Kjedet implementasjon av en mengde. 
@@ -60,35 +61,36 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 	}//
 
 	@Override
-	public T fjern(T element) {
+	public T fjern(T element) throws EmptyCollectionException {
 		boolean funnet = false;
 		LinearNode<T> forgjenger = null;
 		LinearNode<T> aktuell = null;
 		T resultat = null;
-		if (!erTom()) {
-			if (start.getElement().equals(element)) {// Sletter foran
-				resultat = start.getElement();
-				start = start.getNeste();
+		if (erTom()) {
+			throw new EmptyCollectionException("Mengde");
+		}
+		if (start.getElement().equals(element)) {// Sletter foran
+			resultat = start.getElement();
+			start = start.getNeste();
+			antall--;
+		} else { // Gjennomgår den kjedete strukturen
+			forgjenger = start;
+			aktuell = start.getNeste();
+			for (int søk = 1; søk < antall && !funnet; søk++) {
+				if (aktuell.getElement().equals(element))
+					funnet = true;
+				else {
+					forgjenger = aktuell;
+					aktuell = aktuell.getNeste();
+				}
+			}
+			if (funnet) {
+				resultat = aktuell.getElement(); // Sletter midt inni eller
+													// bak
+				forgjenger.setNeste(aktuell.getNeste());
 				antall--;
-			} else { // Gjennomgår den kjedete strukturen
-				forgjenger = start;
-				aktuell = start.getNeste();
-				for (int søk = 1; søk < antall && !funnet; søk++) {
-					if (aktuell.getElement().equals(element))
-						funnet = true;
-					else {
-						forgjenger = aktuell;
-						aktuell = aktuell.getNeste();
-					}
-				}
-				if (funnet) {
-					resultat = aktuell.getElement(); // Sletter midt inni eller
-														// bak
-					forgjenger.setNeste(aktuell.getNeste());
-					antall--;
-				}
-			} // if –else
-		} // if ikke-tom
+			}
+		} // if –else
 		return resultat;
 	}//
 
