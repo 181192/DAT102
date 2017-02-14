@@ -121,8 +121,9 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		Iterator<T> teller = this.oppramser();
 		while (teller.hasNext()) {
 			element = teller.next();
-			if (!m2.inneholder(element))
+			if (!m2.inneholder(element)) {
 				differensM.settInn(element);
+			}
 		}
 		return differensM;
 	}

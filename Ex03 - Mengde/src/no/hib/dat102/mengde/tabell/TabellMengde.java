@@ -2,6 +2,8 @@ package no.hib.dat102.mengde.tabell;
 
 import no.hib.dat102.exception.EmptyCollectionException;
 import no.hib.dat102.mengde.adt.*;
+import no.hib.dat102.mengde.kjedet.KjedetMengde;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Random;
@@ -112,14 +114,29 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
 	@Override
 	public MengdeADT<T> differens(MengdeADT<T> m2) {
-		// TODO Auto-generated method stub
-		return null;
+		TabellMengde<T> differensM = new TabellMengde<T>();
+		T element;
+		Iterator<T> teller = this.oppramser();
+		while (teller.hasNext()) {
+			element = teller.next();
+			if (!this.inneholder(element)) {
+				differensM.settInn(element);
+			}
+		}
+		return differensM;
 	}
 
 	@Override
 	public MengdeADT<T> snitt(MengdeADT<T> m2) {
-		// TODO Auto-generated method stub
-		return null;
+		TabellMengde<T> snittM = new TabellMengde<T>();
+		T element;
+		Iterator<T> teller = m2.oppramser();
+		while (teller.hasNext()) {
+			element = teller.next();
+			if (this.inneholder(element))
+				snittM.settInn(element);
+		}
+		return snittM;
 	}
 
 	@Override
