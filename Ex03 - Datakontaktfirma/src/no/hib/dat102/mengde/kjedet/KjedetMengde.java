@@ -171,17 +171,15 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		T element = null;
 
 		if (antall() == m2.antall()) {
-			Iterator<T> teller = m2.oppramser();
-			while (teller.hasNext() && likeMengder) {
-				element = teller.next();
-				if (!this.inneholder(element)) {
-					likeMengder = false;
-				} // if
-			} // while
-		} // if
-		else {
-			likeMengder = false;
+			return false;
 		}
+		Iterator<T> teller = m2.oppramser();
+		while (teller.hasNext() && likeMengder) {
+			element = teller.next();
+			if (!this.inneholder(element)) {
+				likeMengder = false;
+			} // if
+		} // while
 		return likeMengder;
 	}
 
