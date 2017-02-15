@@ -1,8 +1,13 @@
 package no.hib.dat102.mengde.kjedet;
-//  Representerer en node.
 
-//************************************************************
-
+/**
+ * Representerer en node.
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ * @param <T>
+ *            Generisk type
+ */
 class LinearNode<T> {
 	private LinearNode<T> neste;
 	private T element;

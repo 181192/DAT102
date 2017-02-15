@@ -1,7 +1,20 @@
 package no.hib.dat102.modell;
 
+/**
+ * Klasse for representasjon av hobbyer
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ */
 public class Hobby {
 	private String hobbyNavn;
+
+	/**
+	 * Tom kontruktør for hobby
+	 */
+	public Hobby() {
+		this("");
+	}
 
 	/**
 	 * Konstrukør for hobby

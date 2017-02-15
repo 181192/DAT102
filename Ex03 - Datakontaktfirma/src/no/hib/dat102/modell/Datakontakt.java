@@ -1,5 +1,11 @@
 package no.hib.dat102.modell;
 
+/**
+ * Datakontakt
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ */
 public class Datakontakt {
 	private final static int SDTK = 100;
 	private Medlem[] medlemstabell;
@@ -56,7 +62,7 @@ public class Datakontakt {
 
 	/**
 	 * Finner ut om et medlem (identifisert med medlemsnavn) passer med et annet
-	 * medlem (dersom det finnes i medlemstabellen. Dette medlemmet skal være
+	 * medlem (dersom det finnes i medlemstabellen). Dette medlemmet skal være
 	 * det første som passer og ikke er "koblet". Metoden oppdaterer
 	 * medlemstabellen dersom det finner en partner, og returnerer eventuell
 	 * indeks til partneren i medlemstabellen (eller -1).
@@ -66,7 +72,13 @@ public class Datakontakt {
 	 * @return Indeks til partner, ellers -1.
 	 */
 	public int finnPartnerFor(String medlemsnavn) {
-		return -1;
+		int pos = -1;
+		for (int i = 0; (i < antallMedlemmer) && (pos == -1); i++) {
+			if (medlemstabell[i].getNavn().equals(medlemsnavn)) {
+				pos = i;
+			}
+		}
+		return pos;
 	}
 
 	/**

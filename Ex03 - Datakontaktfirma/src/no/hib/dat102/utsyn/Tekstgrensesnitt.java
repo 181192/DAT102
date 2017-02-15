@@ -8,6 +8,12 @@ import no.hib.dat102.modell.Datakontakt;
 import no.hib.dat102.modell.Hobby;
 import no.hib.dat102.modell.Medlem;
 
+/**
+ * Klasse for tekstgrensesnitt
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ */
 public class Tekstgrensesnitt {
 	private static Scanner tast;
 
@@ -20,11 +26,22 @@ public class Tekstgrensesnitt {
 		System.out.println("Oppi navn: ");
 		String navn = tast.next();
 
-		System.out.println("Oppgi hobbyer: ");
 		MengdeADT<Hobby> hobbyer = new KjedetMengde<Hobby>();
-		hobbyer = null;
+		Hobby nyHobby = null;
+		System.out.println("Oppgi hobbyer, avslutt med -1 : ");
+		String streng = tast.nextLine();
 
-		int statusIndeks = 0;
+		// leser inn hobbyer
+		while (!nyHobby.equals("-1")) {
+			nyHobby = new Hobby(streng);
+			hobbyer.leggTil(nyHobby);
+
+			System.out.println("Oppgi hobbyer, avslutt med -1 : ");
+			streng = tast.nextLine();
+		} // while
+
+		// setter standard status indeks til -1
+		int statusIndeks = -1;
 
 		Medlem nyMedlem = new Medlem(navn, hobbyer, statusIndeks);
 		return nyMedlem;

@@ -7,6 +7,14 @@ import no.hib.dat102.mengde.adt.*;
 //********************************************************************
 import java.util.*;
 
+/**
+ * ADT-en Mengde implimentert som kjedet
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ * @param <T>
+ *            Generisk type
+ */
 public class KjedetMengde<T> implements MengdeADT<T> {
 	private static Random rand = new Random();
 	private int antall; // antall elementer i mengden

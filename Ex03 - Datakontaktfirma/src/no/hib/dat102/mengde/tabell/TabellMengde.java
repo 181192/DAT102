@@ -7,9 +7,16 @@ import java.util.Random;
 import no.hib.dat102.exception.EmptyCollectionException;
 import no.hib.dat102.mengde.adt.MengdeADT;
 
+/**
+ * ADT-en Mengde implimentert som tabell
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ * @param <T>
+ *            Generisk type
+ */
 public class TabellMengde<T> implements MengdeADT<T> {
-	// ADT-en Mengde implementert som tabell
-	//
+
 	private final static Random tilf = new Random();
 	private final static int STDK = 100;
 	private final static int NOT_FOUND = -1;

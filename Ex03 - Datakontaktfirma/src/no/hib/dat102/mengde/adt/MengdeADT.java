@@ -2,6 +2,14 @@ package no.hib.dat102.mengde.adt;
 
 import java.util.Iterator;
 
+/**
+ * Interface for Mengder
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ * @param <T>
+ *            Generisk Type
+ */
 public interface MengdeADT<T> {
 	// Interface som definerer alle operasjoner i en ADT
 	// med navn MengdeADT (en datasamling, en høynivå datastruktur)

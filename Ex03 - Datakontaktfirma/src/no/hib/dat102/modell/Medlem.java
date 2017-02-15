@@ -4,6 +4,12 @@ import java.util.Iterator;
 
 import no.hib.dat102.mengde.adt.MengdeADT;
 
+/**
+ * Representasjona av ett medlem
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ */
 public class Medlem {
 	private String navn;
 	private MengdeADT<Hobby> hobbyer;
