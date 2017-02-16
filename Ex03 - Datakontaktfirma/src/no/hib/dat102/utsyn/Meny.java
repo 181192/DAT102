@@ -38,7 +38,7 @@ public class Meny {
 			switch (valg) {
 			case 1:
 				// Les eksisterende arkiv fra fil
-
+				System.out.println("Ikke implimentert enda! ");
 				break;
 			case 2:
 				// Opprett nytt arkiv
@@ -53,9 +53,13 @@ public class Meny {
 	}
 
 	public void underMeny() {
-		String meny = "\n1 - Legg til nytt medlem" + "\n2 - Slett ett medlem" + "\n3 - Finn partner"
-				+ "\n4 - Skriv ut alle hobbyer til medlem" + "\n5 - Skriv ut par med hobbyer"
-				+ "\n6 - Tilbake til hovedmeny" + "\n\nValg: ";
+		String meny = "\n1 - Legg til nytt medlem" //
+				+ "\n2 - Slett ett medlem" //
+				+ "\n3 - Finn partner" //
+				+ "\n4 - Skriv ut alle hobbyer til medlem" //
+				+ "\n5 - Skriv ut par med hobbyer" //
+				+ "\n6 - Tilbake til hovedmeny" //
+				+ "\n\nValg: "; //
 
 		do {
 			System.out.print(meny);
@@ -64,9 +68,11 @@ public class Meny {
 			switch (valg) {
 			case 1:
 				// Legg til nytt medlem
+				arkiv.leggTilMedlem(tekstgr.lesMedlem());
 				break;
 			case 2:
 				// Slett ett medlem
+				System.out.println("Ikke implimentert! ");
 				break;
 			case 3:
 				// Finn partner

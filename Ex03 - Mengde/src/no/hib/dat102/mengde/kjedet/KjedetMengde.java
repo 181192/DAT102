@@ -182,7 +182,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		boolean likeMengder = true;
 		T element = null;
 
-		if (antall() == m2.antall()) {
+		if (antall() != m2.antall()) {
 			return false;
 		}
 		Iterator<T> teller = m2.oppramser();

@@ -15,14 +15,14 @@ import no.hib.dat102.modell.Medlem;
  *
  */
 public class Tekstgrensesnitt {
-	private static Scanner tast;
+	private Scanner tast;
 
 	/**
 	 * Leser opplysningene om et medlem fra tastatur
 	 * 
 	 * @return Nytt Medlem
 	 */
-	public static Medlem lesMedlem() {
+	public Medlem lesMedlem() {
 		System.out.println("Oppi navn: ");
 		String navn = tast.next();
 
@@ -53,7 +53,7 @@ public class Tekstgrensesnitt {
 	 * @param medlem
 	 *            Medlem
 	 */
-	public static void skrivHobbyListe(Medlem medlem) {
+	public void skrivHobbyListe(Medlem medlem) {
 		System.out.println("Alle hobbyene ");
 		System.out.println(medlem.getHobbyer().toString());
 	}
@@ -67,7 +67,7 @@ public class Tekstgrensesnitt {
 	 * @param arkiv
 	 *            Datakontakt arkiv som skal skrives ut
 	 */
-	public static void skrivParListe(Datakontakt arkiv) {
+	public void skrivParListe(Datakontakt arkiv) {
 
 	}
 }
