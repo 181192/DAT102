@@ -55,7 +55,6 @@ public class Tekstgrensesnitt {
 	 *            Medlem
 	 */
 	public void skrivHobbyListe(Medlem medlem) {
-		System.out.println("Alle hobbyene ");
 		System.out.println(medlem.getHobbyer().toString());
 	}
 
@@ -69,6 +68,6 @@ public class Tekstgrensesnitt {
 	 *            Datakontakt arkiv som skal skrives ut
 	 */
 	public void skrivParListe(Datakontakt arkiv) {
-
+		System.out.println("ikke implimentert");
 	}
 }
