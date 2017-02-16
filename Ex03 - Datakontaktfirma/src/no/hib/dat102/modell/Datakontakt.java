@@ -21,6 +21,43 @@ public class Datakontakt {
 	}
 
 	/**
+	 * @return the medlemstabell
+	 */
+	public Medlem[] getMedlemstabell() {
+		return medlemstabell;
+	}
+
+	/**
+	 * @param medlemstabell
+	 *            the medlemstabell to set
+	 */
+	public void setMedlemstabell(Medlem[] medlemstabell) {
+		this.medlemstabell = medlemstabell;
+	}
+
+	/**
+	 * @return the antallMedlemmer
+	 */
+	public int getAntallMedlemmer() {
+		return antallMedlemmer;
+	}
+
+	/**
+	 * @param antallMedlemmer
+	 *            the antallMedlemmer to set
+	 */
+	public void setAntallMedlemmer(int antallMedlemmer) {
+		this.antallMedlemmer = antallMedlemmer;
+	}
+
+	/**
+	 * @return the sdtk
+	 */
+	public static int getSdtk() {
+		return SDTK;
+	}
+
+	/**
 	 * Legger til et nytt medlem i medlemstabellen
 	 * 
 	 * @param person
