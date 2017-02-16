@@ -111,8 +111,8 @@ public class Datakontakt {
 	public int finnPartnerFor(String medlemsnavn) {
 		int medlemsIndeks = finnMedlemsIndeks(medlemsnavn);
 		int matchIndeks = -1;
-		for(int i = 0; i < medlemstabell.length && matchIndeks < 0; i++) {
-			if(medlemstabell[medlemsIndeks].passerTil(medlemstabell[i])) {
+		for (int i = 0; i < medlemstabell.length && matchIndeks < 0; i++) {
+			if (medlemstabell[medlemsIndeks].passerTil(medlemstabell[i])) {
 				medlemstabell[medlemsIndeks].setStatusIndeks(i);
 				medlemstabell[i].setStatusIndeks(medlemsIndeks);
 				matchIndeks = i;
@@ -137,5 +137,13 @@ public class Datakontakt {
 			medlemstabell[medlemsIndex].setStatusIndeks(-1);
 			medlemstabell[matchIndex].setStatusIndeks(-1);
 		}
+	}
+
+	public int antall() {
+		return antallMedlemmer;
+	}
+
+	public boolean erTom() {
+		return (antall() == 0);
 	}
 }
