@@ -44,9 +44,9 @@ public class DatakontaktKlient2 {
 		datakt.leggTilMedlem(m3);
 		
 		System.out.println("Medlemmer: ");
-		System.out.println(datakt.getMedlemstabell()[0].getNavn() + "\t" + datakt.getMedlemstabell()[0].getStatusIndeks());
-		System.out.println(datakt.getMedlemstabell()[1].getNavn() + "\t" + datakt.getMedlemstabell()[1].getStatusIndeks());
-		System.out.println(datakt.getMedlemstabell()[2].getNavn() + "\t" + datakt.getMedlemstabell()[2].getStatusIndeks());
+		for (int i = 0; i < datakt.getAntallMedlemmer(); i++) {
+			System.out.println(datakt.getMedlemstabell()[i].getNavn() + "\t" + datakt.getMedlemstabell()[i].getStatusIndeks());
+		}
 		System.out.println();
 		// finn medlem
 		String medlem = "Ole";
@@ -68,9 +68,19 @@ public class DatakontaktKlient2 {
 		System.out.println();
 		
 		System.out.println("Medlemmer: ");
-		System.out.println(datakt.getMedlemstabell()[0].getNavn() + "\t" + datakt.getMedlemstabell()[0].getStatusIndeks());
-		System.out.println(datakt.getMedlemstabell()[1].getNavn() + "\t" + datakt.getMedlemstabell()[1].getStatusIndeks());
-		System.out.println(datakt.getMedlemstabell()[2].getNavn() + "\t" + datakt.getMedlemstabell()[2].getStatusIndeks());
+		for (int k = 0; k < datakt.getAntallMedlemmer(); k++) {
+			System.out.println(datakt.getMedlemstabell()[k].getNavn() + "\t" + datakt.getMedlemstabell()[k].getStatusIndeks());
+		}
+		System.out.println();
+		
+		datakt.tilbakestillStatusIndeks("Ole");
+		datakt.tilbakestillStatusIndeks("Kari");
+		datakt.tilbakestillStatusIndeks("Nils");
+		
+		System.out.println("Resetter statusindeks: ");
+		for (int j = 0; j < datakt.getAntallMedlemmer(); j++) {
+			System.out.println(datakt.getMedlemstabell()[j].getNavn() + "\t" + datakt.getMedlemstabell()[j].getStatusIndeks());
+		}
 		System.out.println();
 
 	}
