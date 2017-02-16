@@ -16,6 +16,7 @@ import no.hib.dat102.modell.Medlem;
  */
 public class Tekstgrensesnitt {
 	private Scanner tast;
+	private Hobby nyHobby;
 
 	/**
 	 * Leser opplysningene om et medlem fra tastatur
@@ -23,21 +24,21 @@ public class Tekstgrensesnitt {
 	 * @return Nytt Medlem
 	 */
 	public Medlem lesMedlem() {
-		System.out.println("Oppi navn: ");
+		tast = new Scanner(System.in);
+		
+		System.out.print("Oppgi navn: ");
 		String navn = tast.next();
 
 		MengdeADT<Hobby> hobbyer = new KjedetMengde<Hobby>();
-		Hobby nyHobby = null;
-		System.out.println("Oppgi hobbyer, avslutt med -1 : ");
-		String streng = tast.nextLine();
-
+		System.out.print("Oppgi hobbyer, avslutt med zzz : ");
+		String streng = tast.next();
 		// leser inn hobbyer
-		while (!nyHobby.equals("-1")) {
+		while (!streng.equals("zzz")) {
 			nyHobby = new Hobby(streng);
 			hobbyer.leggTil(nyHobby);
 
-			System.out.println("Oppgi hobbyer, avslutt med -1 : ");
-			streng = tast.nextLine();
+			System.out.print("Oppgi hobbyer, avslutt med zzz : ");
+			streng = tast.next();
 		} // while
 
 		// setter standard status indeks til -1

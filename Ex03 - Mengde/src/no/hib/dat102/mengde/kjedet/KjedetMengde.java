@@ -78,7 +78,7 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		} else { // Gjennomgår den kjedete strukturen
 			forgjenger = start;
 			aktuell = start.getNeste();
-			for (int søk = 1; søk < antall && !funnet; søk++) {
+			for (int soek = 1; soek < antall && !funnet; soek++) {
 				if (aktuell.getElement().equals(element))
 					funnet = true;
 				else {

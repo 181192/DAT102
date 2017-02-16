@@ -15,6 +15,10 @@ public class Medlem {
 	private MengdeADT<Hobby> hobbyer;
 	private int statusIndeks;
 
+	public Medlem() {
+		this("", null, -1);
+	}
+
 	public Medlem(String navn, MengdeADT<Hobby> hobbyer, int statusIndeks) {
 		this.navn = navn;
 		this.hobbyer = hobbyer;
