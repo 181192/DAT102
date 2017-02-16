@@ -103,6 +103,20 @@ public class TabellMengde<T> implements MengdeADT<T> {
 		}
 		return begge;
 	}
+	
+	@Override
+	public MengdeADT<T> effektivUnion(MengdeADT<T> m2) {
+		MengdeADT<T> begge = new TabellMengde<T>();
+		for (int i = 0; i < antall; i++) {
+			begge.leggTil(tab[i]);
+		}
+		Iterator<T> teller = m2.oppramser();
+
+		while (teller.hasNext()) {
+			((TabellMengde<T>)begge).settInn(teller.next());
+		}
+		return begge;
+	}
 
 	private void settInn(T element) {
 		if (antall == tab.length) {

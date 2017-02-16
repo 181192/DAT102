@@ -40,6 +40,15 @@ public interface MengdeADT<T> {
 	MengdeADT<T> union(MengdeADT<T> m2);
 
 	/**
+	 * Mer effektiv union
+	 * 
+	 * @param m2
+	 *            er mengden det skal lages union med.
+	 * @return er union av mengden m2 og this-mengden
+	 */
+	MengdeADT<T> effektivUnion(MengdeADT<T> m2);
+
+	/**
 	 * 
 	 * @param m2
 	 *            er mengden det skal lages differens med.

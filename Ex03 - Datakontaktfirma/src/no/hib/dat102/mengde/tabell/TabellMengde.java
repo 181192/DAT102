@@ -1,22 +1,16 @@
 package no.hib.dat102.mengde.tabell;
 
+import no.hib.dat102.exception.EmptyCollectionException;
+import no.hib.dat102.mengde.adt.*;
+import no.hib.dat102.mengde.kjedet.KjedetMengde;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
-import no.hib.dat102.exception.EmptyCollectionException;
-import no.hib.dat102.mengde.adt.MengdeADT;
-
-/**
- * ADT-en Mengde implimentert som tabell
- * 
- * @author Kristoffer-Andre Kalliainen
- *
- * @param <T>
- *            Generisk type
- */
 public class TabellMengde<T> implements MengdeADT<T> {
-
+	// ADT-en Mengde implementert som tabell
+	//
 	private final static Random tilf = new Random();
 	private final static int STDK = 100;
 	private final static int NOT_FOUND = -1;
@@ -106,6 +100,20 @@ public class TabellMengde<T> implements MengdeADT<T> {
 
 		while (teller.hasNext()) {
 			begge.leggTil(teller.next());
+		}
+		return begge;
+	}
+	
+	@Override
+	public MengdeADT<T> effektivUnion(MengdeADT<T> m2) {
+		MengdeADT<T> begge = new TabellMengde<T>();
+		for (int i = 0; i < antall; i++) {
+			begge.leggTil(tab[i]);
+		}
+		Iterator<T> teller = m2.oppramser();
+
+		while (teller.hasNext()) {
+			((TabellMengde<T>)begge).settInn(teller.next());
 		}
 		return begge;
 	}

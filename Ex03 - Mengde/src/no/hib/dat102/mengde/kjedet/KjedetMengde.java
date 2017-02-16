@@ -110,6 +110,24 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		}
 		return begge;
 	}//
+	
+	@Override
+	public MengdeADT<T> effektivUnion(MengdeADT<T> m2) {
+		MengdeADT<T> begge = new KjedetMengde<T>();
+		LinearNode<T> aktuell = start;
+		while (aktuell != null) {
+			((KjedetMengde<T>) begge).settInn(aktuell.getElement());
+			aktuell = aktuell.getNeste();
+		}
+		Iterator<T> teller = m2.oppramser();
+		while (teller.hasNext()) {
+			T element = teller.next();
+			if (!inneholder(element)) {
+				((KjedetMengde<T>) begge).settInn(element);
+			}
+		}
+		return begge;
+	}
 
 	private void settInn(T element) {
 		LinearNode<T> nyNode = new LinearNode<T>(element);

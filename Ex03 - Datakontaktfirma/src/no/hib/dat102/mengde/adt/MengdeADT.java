@@ -2,14 +2,6 @@ package no.hib.dat102.mengde.adt;
 
 import java.util.Iterator;
 
-/**
- * Interface for Mengder
- * 
- * @author Kristoffer-Andre Kalliainen
- *
- * @param <T>
- *            Generisk Type
- */
 public interface MengdeADT<T> {
 	// Interface som definerer alle operasjoner i en ADT
 	// med navn MengdeADT (en datasamling, en høynivå datastruktur)
@@ -46,6 +38,15 @@ public interface MengdeADT<T> {
 	 * @return er union av mengden m2 og this-mengden
 	 */
 	MengdeADT<T> union(MengdeADT<T> m2);
+
+	/**
+	 * Mer effektiv union
+	 * 
+	 * @param m2
+	 *            er mengden det skal lages union med.
+	 * @return er union av mengden m2 og this-mengden
+	 */
+	MengdeADT<T> effektivUnion(MengdeADT<T> m2);
 
 	/**
 	 * 

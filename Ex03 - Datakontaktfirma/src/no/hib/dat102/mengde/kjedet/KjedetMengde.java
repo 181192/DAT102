@@ -1,20 +1,14 @@
 package no.hib.dat102.mengde.kjedet;
 
-import no.hib.dat102.exception.EmptyCollectionException;
-import no.hib.dat102.mengde.adt.*;
 //********************************************************************
 // Kjedet implementasjon av en mengde. 
 //********************************************************************
-import java.util.*;
+import java.util.Iterator;
+import java.util.Random;
 
-/**
- * ADT-en Mengde implimentert som kjedet
- * 
- * @author Kristoffer-Andre Kalliainen
- *
- * @param <T>
- *            Generisk type
- */
+import no.hib.dat102.exception.EmptyCollectionException;
+import no.hib.dat102.mengde.adt.MengdeADT;
+
 public class KjedetMengde<T> implements MengdeADT<T> {
 	private static Random rand = new Random();
 	private int antall; // antall elementer i mengden
@@ -116,6 +110,24 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 		}
 		return begge;
 	}//
+	
+	@Override
+	public MengdeADT<T> effektivUnion(MengdeADT<T> m2) {
+		MengdeADT<T> begge = new KjedetMengde<T>();
+		LinearNode<T> aktuell = start;
+		while (aktuell != null) {
+			((KjedetMengde<T>) begge).settInn(aktuell.getElement());
+			aktuell = aktuell.getNeste();
+		}
+		Iterator<T> teller = m2.oppramser();
+		while (teller.hasNext()) {
+			T element = teller.next();
+			if (!inneholder(element)) {
+				((KjedetMengde<T>) begge).settInn(element);
+			}
+		}
+		return begge;
+	}
 
 	private void settInn(T element) {
 		LinearNode<T> nyNode = new LinearNode<T>(element);
@@ -196,19 +208,6 @@ public class KjedetMengde<T> implements MengdeADT<T> {
 	@Override
 	public Iterator<T> oppramser() {
 		return new KjedetIterator<T>(start);
-	}
-
-	/**
-	 * Returnerer en streng som represnterer mengden.
-	 */
-	public String toString() {
-		String resultat = "";
-		LinearNode<T> aktuell = start;
-		while (aktuell != null) {
-			resultat += aktuell.getElement().toString();
-			aktuell = aktuell.getNeste();
-		}
-		return resultat;
 	}
 
 }// class
