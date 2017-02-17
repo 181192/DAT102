@@ -35,9 +35,12 @@ public class DatakontaktKlient2 {
 		hobbyerM3.leggTil(h5);
 
 		// Legger til medlemmer
-		Medlem m1 = new Medlem("Ole", hobbyerM1, -1);
-		Medlem m2 = new Medlem("Kari", hobbyerM2, -1);
-		Medlem m3 = new Medlem("Nils", hobbyerM3, -1);
+		Medlem m1 = new Medlem("Ole", -1);
+		Medlem m2 = new Medlem("Kari", -1);
+		Medlem m3 = new Medlem("Nils", -1);
+		m1.setHobbyer(hobbyerM1);
+		m2.setHobbyer(hobbyerM2);
+		m3.setHobbyer(hobbyerM3);
 		
 		datakt.leggTilMedlem(m1);
 		datakt.leggTilMedlem(m2);
@@ -58,8 +61,10 @@ public class DatakontaktKlient2 {
 		System.out.println();
 		
 		// skriv ut hobby til medlem
-		System.out.print("Alle hobbyene til " + m3.getNavn() + " : ");
-		tekstgr.skrivHobbyListe(m3);
+		for (int m = 0; m < datakt.getAntallMedlemmer(); m++) {
+		System.out.print("Alle hobbyene til " + datakt.getMedlemstabell()[m].getNavn() + "\t: ");
+		tekstgr.skrivHobbyListe(datakt.getMedlemstabell()[m]);
+		}
 		System.out.println();
 		
 		// skriv ut par med hobbyer

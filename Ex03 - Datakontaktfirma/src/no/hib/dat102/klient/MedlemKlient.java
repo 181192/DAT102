@@ -28,7 +28,8 @@ public class MedlemKlient {
 		String navn = "Arne";
 		int statusIndeks = -1;
 
-		Medlem m1 = new Medlem(navn, hobbyer, statusIndeks);
+		Medlem m1 = new Medlem(navn, statusIndeks);
+		m1.setHobbyer(hobbyer);
 
 		m1.skrivUt();
 	}

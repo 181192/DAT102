@@ -44,7 +44,8 @@ public class Tekstgrensesnitt {
 		// setter standard status indeks til -1
 		int statusIndeks = -1;
 
-		Medlem nyMedlem = new Medlem(navn, hobbyer, statusIndeks);
+		Medlem nyMedlem = new Medlem(navn, statusIndeks);
+		nyMedlem.setHobbyer(hobbyer);
 		return nyMedlem;
 	}
 
