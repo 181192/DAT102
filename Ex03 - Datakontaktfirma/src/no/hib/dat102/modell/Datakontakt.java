@@ -111,10 +111,11 @@ public class Datakontakt {
 	public int finnPartnerFor(String medlemsnavn) {
 		int medlemsIndeks = finnMedlemsIndeks(medlemsnavn);
 		int matchIndeks = -1;
-		for (int i = 0; i < medlemstabell.length && matchIndeks < 0; i++) {
-			if (medlemstabell[medlemsIndeks].passerTil(medlemstabell[i])) {
-				medlemstabell[medlemsIndeks].setStatusIndeks(i);
+		for (int i = 0; i < medlemstabell.length && matchIndeks == -1; i++) {
+			if (medlemstabell[i] != null && !medlemstabell[i].equals(medlemstabell[medlemsIndeks]) && medlemstabell[i].passerTil(medlemstabell[medlemsIndeks])) {
 				medlemstabell[i].setStatusIndeks(medlemsIndeks);
+				medlemstabell[medlemsIndeks].setStatusIndeks(i);
+
 				matchIndeks = i;
 			}
 		}

@@ -75,21 +75,23 @@ public class Meny {
 				break;
 			case 2:
 				// Finn medlem
-				System.out.println("Oppgi navn på medlem: ");
+				System.out.print("Oppgi navn på medlem: ");
 				medlemsnavn = tast.next();
 				System.out.println("Medlems indeks: " + datakt.finnMedlemsIndeks(medlemsnavn));
 				break;
 			case 3:
 				// Finn partner
-				System.out.println("Oppgi navn på medlem: ");
+				System.out.print("Oppgi navn på medlem: ");
 				medlemsnavn = tast.next();
-				datakt.finnPartnerFor(medlemsnavn);
+				int partnerindeks = datakt.finnPartnerFor(medlemsnavn);
+				System.out.println(medlemsnavn + "'s partner er " + datakt.getMedlemstabell()[partnerindeks].getNavn() + " og har indeks " + partnerindeks);
 				break;
 			case 4:
 				// Skriv ut alle hobbyer til medlem
-				System.out.println("Oppgi navn på medlem: ");
+				System.out.print("Oppgi navn på medlem: ");
 				medlemsnavn = tast.next();
-//				tekstgr.skrivHobbyListe(medlem);
+				int medlemsindeks = datakt.finnMedlemsIndeks(medlemsnavn);
+				tekstgr.skrivHobbyListe(datakt.getMedlemstabell()[medlemsindeks]);
 				break;
 			case 5:
 				// Skriv ut par med hobbyer
