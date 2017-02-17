@@ -13,8 +13,8 @@ import no.hib.dat102.mengde.kjedet.KjedetMengde;
  */
 public class Medlem {
 	private String navn;
-	private MengdeADT<Hobby> hobbyer;
 	private int statusIndeks;
+	private MengdeADT<Hobby> hobbyer;
 
 	public Medlem() {
 		this("", -1);
@@ -22,8 +22,14 @@ public class Medlem {
 
 	public Medlem(String navn, int statusIndeks) {
 		this.navn = navn;
-		this.hobbyer = new KjedetMengde<Hobby>();
 		this.statusIndeks = statusIndeks;
+		this.hobbyer = new KjedetMengde<Hobby>();
+	}
+	
+	public Medlem(String navn, int statusIndeks, MengdeADT<Hobby> hobbyer) {
+		this.navn = navn;
+		this.statusIndeks = statusIndeks;
+		this.hobbyer = new KjedetMengde<Hobby>();
 	}
 
 	/**
