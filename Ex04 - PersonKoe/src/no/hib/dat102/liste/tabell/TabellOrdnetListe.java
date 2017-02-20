@@ -40,19 +40,21 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 		if (bak == liste.length - 1) {
 			utvid();
 		}
-		int i = 0;
-		while (element.compareTo(liste[i]) > 0) {
-			i++;
+		if (erTom()) {
+			liste[bak] = element;
+		} else if (element.compareTo(siste()) == 0) {
+			liste[bak + 1] = element;
+		} else {
+			int i = 0;
+			while (element.compareTo(liste[i]) > 0) {
+				i++;
+			}
+			for (int j = i; j < bak; j++) {
+				liste[j] = liste[j + 1];
+			}
+			liste[i] = element;
+			bak++;
 		}
-
-		int j = bak;
-		while (j > i) {
-			liste[j] = liste[j + 1];
-			j--;
-		}
-
-		liste[i] = element;
-		bak++;
 	}
 
 	@Override
@@ -89,7 +91,6 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 				resultat = i;
 			}
 		}
-
 		return resultat;
 	}
 
@@ -97,7 +98,8 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 	public T fjernSiste() {
 		T resultat = null;
 		if (!erTom()) {
-			resultat = liste[bak - 1];
+			resultat = liste[bak];
+			liste[bak] = null;
 			bak--;
 		}
 		return resultat;
@@ -108,11 +110,12 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 		T resultat = null;
 		if (!erTom()) {
 			resultat = liste[0];
-			for (int i = 0; i < bak - 1; i++) {
+			liste[0] = null;
+			bak--;
+			for (int i = 0; i < bak; i++) {
 				liste[i] = liste[i + 1];
 			}
 		}
-
 		return resultat;
 	}//
 
@@ -129,9 +132,8 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 	public T siste() {
 		T resultat = null;
 		if (!erTom()) {
-			resultat = liste[bak - 1];
+			resultat = liste[bak];
 		}
-
 		return resultat;
 	}
 

@@ -9,14 +9,14 @@ import no.hib.dat102.liste.adt.OrdnetListeADT;
  *            elementtypen
  */
 
-public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeADT<T> {
+public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeADT<T> {
 	private int antall;
 	private LinearNode<T> foerste, siste;
 
 	/**
 	 * Lager en ny tom liste.
 	 */
-	public KjedetOrdnetListe() {
+	public TabellOrdnetListe() {
 		antall = 0;
 		foerste = null;
 		siste = null;

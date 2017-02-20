@@ -2,8 +2,7 @@ package no.hib.dat102.liste.klient;
 
 import java.util.Scanner;
 
-import no.hib.dat102.liste.kjedet.KjedetOrdnetListe;
-import no.hib.dat102.liste.tabell.TabellOrdnetListe;
+import no.hib.dat102.liste.kjedet.TabellOrdnetListe;
 
 /**
  * Eks 1. Bruk av OrdnetListe.
@@ -22,7 +21,7 @@ public final class KlientOrdnetListe {
      * @param args ikke i bruk
      */
     public static void main(String[] args) {
-        KjedetOrdnetListe<String> navneListe1 = new KjedetOrdnetListe<String>();
+        TabellOrdnetListe<String> navneListe1 = new TabellOrdnetListe<String>();
         TabellOrdnetListe<String> navneListe2 = new TabellOrdnetListe<String>();
         
         

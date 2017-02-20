@@ -2,13 +2,15 @@ package no.hib.dat102.klient;
 
 import java.util.Scanner;
 
-import no.hib.dat102.koe.adt.KoeADT;
-import no.hib.dat102.koe.tabell.TabellKoe;
+import no.hib.dat102.liste.adt.OrdnetListeADT;
+import no.hib.dat102.liste.kjedet.KjedetOrdnetListe;
+import no.hib.dat102.liste.tabell.TabellOrdnetListe;
 import no.hib.dat102.modell.Person;
 
-public class PersonKoeKlient {
+public class PersonListeKlient {
 	public static void main(String[] args) {
-		KoeADT<Person> pkoe = new TabellKoe<Person>();
+		OrdnetListeADT<Person> pKjedeListe = new KjedetOrdnetListe<Person>();
+		OrdnetListeADT<Person> pTabellListe = new TabellOrdnetListe<Person>();
 
 		Scanner tast = new Scanner(System.in);
 
@@ -28,7 +30,8 @@ public class PersonKoeKlient {
 				String foedselaar = tast.next();
 
 				Person p = new Person(fornavn, etternavn, Integer.parseInt(foedselaar));
-				pkoe.innKoe(p);
+				pKjedeListe.leggTil(p);
+				pTabellListe.leggTil(p);
 				break;
 			case "n":
 				// avslutt
@@ -40,10 +43,15 @@ public class PersonKoeKlient {
 		tast.close();
 
 		System.out.println("\nPersoner i koe: ");
-		while (!pkoe.erTom()) {
-			
-			System.out.println(pkoe.utKoe());
+		while (!pKjedeListe.erTom()) {
+			System.out.println(pKjedeListe.fjernFoerste());
+		}
+		
+		System.out.println("\nPersoner i koe: ");
+		while (!pTabellListe.erTom()) {
+			System.out.println(pTabellListe.fjernFoerste());
 		}
 
+		
 	}
 }
