@@ -96,6 +96,5 @@ public class Tekstgrensesnitt {
 			// Hobbyer for id1 og id2 vil være like
 			System.out.printf("%15s%n", arkiv.getMedlemstabell()[id1].getHobbyer());
 		}
-
 	}
 }
