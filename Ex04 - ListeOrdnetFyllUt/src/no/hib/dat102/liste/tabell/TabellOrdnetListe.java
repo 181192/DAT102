@@ -37,24 +37,23 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 
 	@Override
 	public void leggTil(T element) {
-		if (bak == liste.length - 1) {
+		if (bak == liste.length - 1) { // viss tabell er full
 			utvid();
 		}
-		if (erTom()) { // legg til på foerste
-			liste[bak] = element;
-		} else if (element.compareTo(siste()) == 0) { // legg til på siste
-			liste[bak + 1] = element;
-		} else { // standardtilfelle
-			int i = 0;
-			while (element.compareTo(liste[i]) > 0) {
-				i++;
-			}
-			for (int j = i; j < bak; j++) {
-				liste[j] = liste[j + 1];
-			}
-			liste[i] = element;
-			bak++;
+		int i = 0;
+		// finne riktig posisjon
+		while (i < bak && element.compareTo(liste[i]) > 0) {
+			i++;
 		}
+		// i peker på plassen der elementet skal inn
+		// lage plass ved å skifte elementene bakover f.o.m indeks i
+		int j = bak;
+		while (j > i) {
+			liste[j] = liste[j - 1];
+			j--;
+		}
+		liste[i] = element;
+		bak++;
 	}
 
 	@Override
@@ -98,7 +97,7 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 	public T fjernSiste() {
 		T resultat = null;
 		if (!erTom()) {
-			resultat = liste[bak];
+			resultat = liste[bak - 1];
 			liste[bak] = null;
 			bak--;
 		}
@@ -110,7 +109,6 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 		T resultat = null;
 		if (!erTom()) {
 			resultat = liste[0];
-			liste[0] = null;
 			bak--;
 			for (int i = 0; i < bak; i++) {
 				liste[i] = liste[i + 1];
