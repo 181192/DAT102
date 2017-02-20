@@ -10,7 +10,7 @@ import org.junit.Test;
 import no.hib.dat102.liste.adt.OrdnetListeADT;
 import no.hib.dat102.liste.tabell.TabellOrdnetListe;
 
-public class ListeTabellTest {
+public class ListeTabellADTTest {
 
 	/**
 	 * Test av KjedetOrdnetListeADT med heltall.

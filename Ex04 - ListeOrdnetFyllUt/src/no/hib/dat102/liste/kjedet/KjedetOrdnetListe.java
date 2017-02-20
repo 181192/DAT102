@@ -9,14 +9,14 @@ import no.hib.dat102.liste.adt.OrdnetListeADT;
  *            elementtypen
  */
 
-public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeADT<T> {
+public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeADT<T> {
 	private int antall;
 	private LinearNode<T> foerste, siste;
 
 	/**
 	 * Lager en ny tom liste.
 	 */
-	public TabellOrdnetListe() {
+	public KjedetOrdnetListe() {
 		antall = 0;
 		foerste = null;
 		siste = null;
@@ -127,7 +127,8 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 	@Override
 	public T fjernFoerste() {
 		T svar = null;
-		if (antall > 0) {
+
+		if (!erTom()) {
 			svar = foerste.getElement();
 			if (antall == 1) {
 				foerste = null;

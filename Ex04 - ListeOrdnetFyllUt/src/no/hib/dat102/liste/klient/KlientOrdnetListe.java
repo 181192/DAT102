@@ -2,7 +2,7 @@ package no.hib.dat102.liste.klient;
 
 import java.util.Scanner;
 
-import no.hib.dat102.liste.kjedet.TabellOrdnetListe;
+import no.hib.dat102.liste.tabell.TabellOrdnetListe;
 
 /**
  * Eks 1. Bruk av OrdnetListe.

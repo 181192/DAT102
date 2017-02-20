@@ -7,16 +7,17 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import no.hib.dat102.liste.kjedet.TabellOrdnetListe;
+import no.hib.dat102.liste.adt.OrdnetListeADT;
+import no.hib.dat102.liste.kjedet.KjedetOrdnetListe;
 
-public class ListeADTTest {
+public class ListeKjedetADTTest {
 
 	/**
 	 * Test av KjedetOrdnetListeADT med heltall.
 	 * 
 	 * @author Ole Olsen
 	 */
-	private TabellOrdnetListe<Integer> liste;  
+	private OrdnetListeADT<Integer> liste;  
 
 	// Test data
 	private Integer e0 = 1;
@@ -33,7 +34,7 @@ public class ListeADTTest {
 	 */
 	@Before
 	public final void setup() throws Exception {
-		liste = new TabellOrdnetListe<Integer>();
+		liste = new KjedetOrdnetListe<Integer>();
 	}
 
 	/**

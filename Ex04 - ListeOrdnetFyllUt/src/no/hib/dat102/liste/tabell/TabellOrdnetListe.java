@@ -1,6 +1,6 @@
 package no.hib.dat102.liste.tabell;
 
-import no.hib.dat102.liste.adt.*;
+import no.hib.dat102.liste.adt.OrdnetListeADT;
 
 //********************************************************************
 //  TabellOrdnetListe.java
@@ -40,11 +40,11 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 		if (bak == liste.length - 1) {
 			utvid();
 		}
-		if (erTom()) {
+		if (erTom()) { // legg til på foerste
 			liste[bak] = element;
-		} else if (element.compareTo(siste()) == 0) {
+		} else if (element.compareTo(siste()) == 0) { // legg til på siste
 			liste[bak + 1] = element;
-		} else {
+		} else { // standardtilfelle
 			int i = 0;
 			while (element.compareTo(liste[i]) > 0) {
 				i++;
@@ -132,7 +132,7 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 	public T siste() {
 		T resultat = null;
 		if (!erTom()) {
-			resultat = liste[bak];
+			resultat = liste[bak - 1];
 		}
 		return resultat;
 	}
