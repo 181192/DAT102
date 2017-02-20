@@ -16,7 +16,7 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 	private final static int IKKE_FUNNET = -1;
 	private int bak;
 	private T[] liste;
-	
+
 	/******************************************************************
 	 * Konstruktører
 	 ******************************************************************/
@@ -34,13 +34,27 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 	 * Legger til et spesifisert element til denne listen slik at listen
 	 * fortsatt er sortert.
 	 ******************************************************************/
-	
+
 	@Override
 	public void leggTil(T element) {
-		//... Fyll ut
+		if (bak == liste.length - 1) {
+			utvid();
+		}
+		int i = 0;
+		while (element.compareTo(liste[i]) > 0) {
+			i++;
+		}
+
+		int j = bak;
+		while (j > i) {
+			liste[j] = liste[j + 1];
+			j--;
+		}
+
+		liste[i] = element;
+		bak++;
 	}
 
-	
 	@Override
 	public boolean inneholder(T element) {
 		return (finn(element) != IKKE_FUNNET);
@@ -57,15 +71,14 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 			resultat = liste[indeks];
 			bak--;
 			/** skifter elementene etter det vi fjernet en plass opp */
-			for (int i = indeks; i < bak; i++){
+			for (int i = indeks; i < bak; i++) {
 				liste[i] = liste[i + 1];
 			}
-			 // if
+			// if
 		}
 		return resultat;
 	}
 
-	
 	private int finn(T el) {
 		int i = 0, resultat = -1;
 		if (!erTom()) {
@@ -79,69 +92,76 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 
 		return resultat;
 	}
-		
-		@Override
-		public T fjernSiste() {
-			T resultat = null;
-			//...Fyll ut
-			return resultat;
+
+	@Override
+	public T fjernSiste() {
+		T resultat = null;
+		if (!erTom()) {
+			resultat = liste[bak - 1];
+			bak--;
 		}
+		return resultat;
+	}
 
-		@Override
-		public T fjernFoerste() {
-			T resultat = null;
-			//...Fyll ut
-			
-			return resultat;
-		}//
-
-		@Override
-		public T foerste() {
-			T resultat = null;
-			if (!erTom()){
-				resultat = liste[0];
+	@Override
+	public T fjernFoerste() {
+		T resultat = null;
+		if (!erTom()) {
+			resultat = liste[0];
+			for (int i = 0; i < bak - 1; i++) {
+				liste[i] = liste[i + 1];
 			}
-			return resultat;
 		}
 
-		@Override
-		public T siste() {
-			T resultat = null;
-			if (!erTom()) {
-				resultat = liste[bak - 1];
-			}
+		return resultat;
+	}//
 
-			return resultat;
+	@Override
+	public T foerste() {
+		T resultat = null;
+		if (!erTom()) {
+			resultat = liste[0];
+		}
+		return resultat;
+	}
+
+	@Override
+	public T siste() {
+		T resultat = null;
+		if (!erTom()) {
+			resultat = liste[bak - 1];
 		}
 
-		@Override
-		public boolean erTom() {
-			return (bak == 0);
+		return resultat;
+	}
+
+	@Override
+	public boolean erTom() {
+		return (bak == 0);
+	}
+
+	@Override
+	public int antall() {
+		return bak;
+	}
+
+	@Override
+	public String toString() {
+		String resultat = "";
+
+		for (int i = 0; i < bak; i++) {
+			resultat = resultat + liste[i].toString() + "\n";
 		}
+		return resultat;
+	}
 
-		@Override
-		public int antall() {
-			return bak;
+	private void utvid() {
+		T[] hjelpeTabell = (T[]) (new Object[liste.length * 2]);
+
+		for (int i = 0; i < liste.length; i++) {
+			hjelpeTabell[i] = liste[i];
 		}
-		
-		@Override
-		public String toString() {
-			String resultat = "";
+		liste = hjelpeTabell;
+	}
 
-			for (int i = 0; i < bak; i++) {
-				resultat = resultat + liste[i].toString() + "\n";
-			}
-			return resultat;
-		}
-
-		private void utvid() {
-			T[] hjelpeTabell = (T[]) (new Object[liste.length * 2]);
-
-			for (int i = 0; i < liste.length; i++){
-				hjelpeTabell[i] = liste[i];
-			}
-			liste = hjelpeTabell;
-		}
-
-	
 }// class
