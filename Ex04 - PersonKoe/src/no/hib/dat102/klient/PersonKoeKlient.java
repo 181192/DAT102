@@ -41,7 +41,6 @@ public class PersonKoeKlient {
 
 		System.out.println("\nPersoner i koe: ");
 		while (!pkoe.erTom()) {
-			
 			System.out.println(pkoe.utKoe());
 		}
 

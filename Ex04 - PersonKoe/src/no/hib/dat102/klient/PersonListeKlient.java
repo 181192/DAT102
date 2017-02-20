@@ -42,16 +42,15 @@ public class PersonListeKlient {
 
 		tast.close();
 
-		System.out.println("\nPersoner i koe: ");
+		System.out.println("\nPersoner i koe (KjedetListe): ");
 		while (!pKjedeListe.erTom()) {
 			System.out.println(pKjedeListe.fjernFoerste());
 		}
-		
-		System.out.println("\nPersoner i koe: ");
+
+		System.out.println("\nPersoner i koe (TabellListe): ");
 		while (!pTabellListe.erTom()) {
 			System.out.println(pTabellListe.fjernFoerste());
 		}
 
-		
 	}
 }

@@ -127,7 +127,8 @@ public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 	@Override
 	public T fjernFoerste() {
 		T svar = null;
-		if (antall > 0) {
+
+		if (!erTom()) {
 			svar = foerste.getElement();
 			if (antall == 1) {
 				foerste = null;
