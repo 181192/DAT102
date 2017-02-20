@@ -1,6 +1,6 @@
-package no.hib.dat102.koe;
+package no.hib.dat102.koe.tabell;
 
-import no.hib.dat102.adt.KoeADT;
+import no.hib.dat102.koe.adt.KoeADT;
 
 //********************************************************************
 //
@@ -35,8 +35,9 @@ public class TabellKoe<T> implements KoeADT<T> {
 	 * 
 	 ******************************************************************/
 	public void innKoe(T element) {
-		if (antall() == koe.length)
+		if (antall() == koe.length) {
 			utvid();
+		}
 
 		koe[bak] = element;
 		bak++;
