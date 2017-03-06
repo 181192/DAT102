@@ -10,6 +10,7 @@ import no.hib.dat102.stabel.kjedet.KjedetStabel;
 public class Balansering {
 	private KjedetStabel<ParentesInfo> stabel;
 	private ParentesInfo info;
+	private boolean fortsatt;
 
 	public Balansering() {
 		stabel = new KjedetStabel<ParentesInfo>();
@@ -30,7 +31,7 @@ public class Balansering {
 
 	public void foretaBalansering(String innDataStreng, int linjenr) {
 		int lengde = innDataStreng.length();
-		boolean fortsatt = true;
+		fortsatt = true;
 		int posisjon = 0;
 
 		while (posisjon < lengde && fortsatt) {
@@ -41,25 +42,18 @@ public class Balansering {
 			} else if (parentes.equals(')') || parentes.equals(']') || parentes.equals('}')) {
 				if (stabel.erTom()) {
 					fortsatt = false;
-					System.out.println("Feil på linje: " + (linjenr + 1) + " posisjon " + posisjon);
+					System.out.println("Feil på linje: " + (linjenr) + " posisjon " + posisjon);
 				} else {
 					info = stabel.pop();
 					if (!passer(info.getVenstreparentes(), parentes)) {
 						fortsatt = false;
-						System.out.println("Par passer ikke på linjenr" + (linjenr + 1));	
+						System.out.println("Par passer ikke på linjenr " + (linjenr));	
 					}
 				}
 			}
 			posisjon++;
 		}
-		if (!stabel.erTom()) {
-			info = stabel.pop();
-			System.out.println("Parantes ikke lukket på linje " + (linjenr + 1) + " på posisjon " + info.getPosisjon());
-			fortsatt = false;
-		}
-		if (fortsatt) {
-			System.out.println("Filen er balansert");
-		}
+	
 
 	}//
 
@@ -68,7 +62,7 @@ public class Balansering {
 		try {
 			tekstFilLeser = new FileReader(filnavn);
 		} catch (FileNotFoundException unntak) {
-			System.out.println("Finner ike filen!");
+			System.out.println("Finner ikke filen!");
 			System.exit(-1);
 		}
 
@@ -82,6 +76,14 @@ public class Balansering {
 				linjenr++;
 				linje = tekstLeser.readLine();
 			} // while
+			if (!stabel.erTom()) {
+				info = stabel.pop();
+				System.out.println("Parantes ikke lukket på linje " + (linjenr - 1) + " på posisjon " + info.getPosisjon());
+				fortsatt = false;
+			}
+			if (fortsatt) {
+				System.out.println("Filen er balansert");
+			}
 		}
 
 		catch (IOException unntak) {

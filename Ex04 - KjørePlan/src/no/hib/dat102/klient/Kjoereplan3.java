@@ -27,6 +27,7 @@ public class Kjoereplan3 {
 
 		System.out.println("antall " + antall);
 		JobbSamling ferdige = new JobbSamling(antall);
+	
 		
 		
 	}
