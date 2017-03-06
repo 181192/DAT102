@@ -7,6 +7,7 @@ public class Jobb implements Comparable<Jobb> {
 	private int ankomsttid;
 	private int kjoeretid;
 	private int ferdigtid;
+	private int resttid;
 
 	// Konstruktører
 	public Jobb(int jnr, int kjtid, int anktid) {
@@ -14,7 +15,15 @@ public class Jobb implements Comparable<Jobb> {
 		ankomsttid = anktid;
 		kjoeretid = kjtid;
 		ferdigtid = -1;
-
+		this.resttid = kjtid;
+	}
+	
+	public Jobb(int jnr, int kjtid, int anktid, int resttid) {
+		jobbnr = jnr;
+		ankomsttid = anktid;
+		kjoeretid = kjtid;
+		ferdigtid = -1;
+		this.resttid = kjtid;
 	}
 
 	public int getKjoeretid() {
@@ -32,6 +41,14 @@ public class Jobb implements Comparable<Jobb> {
 	public int getFerdigTid() {
 		return ferdigtid;
 	}//
+	
+	public void setRestTid(int resttid) {
+		this.resttid = resttid;
+	}
+	
+	public int getRestTid() {
+		return resttid;
+	}
 
 	public int finnVenteTid() {
 		if (ferdigtid != -1)
