@@ -2,9 +2,9 @@ package no.hib.dat102;
 
 public class Minste {
 	public static void main(String[] args) {
-		int[] tab = { 3242, -222, 332, 11, 43, 54, 4345, 0 };
+		int[] tab = { 3242, 222, -332, 11, 43, 54, 4345, 0 };
 		System.out.println("minste rek : " + finneMinste(tab));
-		System.out.println("minste rek2: " + finneMinste(tab));
+		System.out.println("minste rek2: " + finneMinste2(tab));
 		
 		// vanlig tabell for å finne minste
 		int minste = tab[0];
