@@ -98,7 +98,7 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 		T resultat = null;
 		if (!erTom()) {
 			resultat = liste[bak - 1];
-			liste[bak] = null;
+			liste[bak - 1] = null;
 			bak--;
 		}
 		return resultat;

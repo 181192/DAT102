@@ -19,12 +19,12 @@ public class Kjoereplan3 {
 		int klokke = 0;
 		int tidskrav = 0;
 		int antall = 0;
-		int tidssegmentA = 20;
-		int tidssegmentB = 70;
+		int tidssegmentA = 10;
+		int tidssegmentB = 20;
 
 		// Leser fra fil
 		System.out.print("Oppgi datafil:");
-		String filnavn = tastatur.nextLine();
+		String filnavn = "data1.txt";
 		System.out.println("Datafil: " + filnavn);
 
 		js.lesFraFil(filnavn);
@@ -33,7 +33,7 @@ public class Kjoereplan3 {
 		System.out.println("antall " + antall);
 		JobbSamling ferdige = new JobbSamling(antall);
 
-		while (ferdige.hentAntall() < antall) {
+		while (ferdige.hentAntall() < 1) {
 			do {
 				jobb = js.hentAnkommenJobb(klokke);
 				if (jobb != null) {
@@ -41,26 +41,19 @@ public class Kjoereplan3 {
 				}
 			} while (jobb != null);
 			if (klarKoeA.antall() > 0) {
-				Jobb j = klarKoeA.fjernFoerste();
-				System.out.println(j.toString());
-				j.setRestTid(j.getRestTid() - tidssegmentA);
-				if (j.getRestTid() < 0) {
-					ferdige.leggTil(j);
+				jobb = (Jobb) klarKoeA.fjernFoerste();
+				tidskrav = jobb.getRestTid() - tidssegmentA;
+
+				if (tidskrav > 0) {
+					klarKoeB.innKoe(jobb);
+					klokke++;
 				} else {
-					klarKoeB.innKoe(j);
+					klokke += tidskrav;
+					jobb.setFerdigTid(klokke);
+					ferdige.leggTil(jobb);
 				}
 			}
-		}
-		while (!klarKoeB.erTom()) {
-			
-			Jobb j = klarKoeB.utKoe();
-			j.setRestTid(j.getRestTid() - tidssegmentA);
-			if (j.getRestTid() < 0) {
-				ferdige.leggTil(j);
-			} else {
-				klarKoeB.innKoe(j);
-			}
-		}
+		} // while
 		ferdige.visJobber();
 		tastatur.close();
 
