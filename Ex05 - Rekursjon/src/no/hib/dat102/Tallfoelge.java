@@ -7,10 +7,10 @@ public class Tallfoelge {
 		}
 	}
 
-	/*
-	 * { a(n) }
-	 * 
-	 * 
+	/**
+	 * Metoden er ikke gyldig for n < 0
+	 * @param n
+	 * @return
 	 */
 	public static int sum(int n) {
 		if (n == 0) {
