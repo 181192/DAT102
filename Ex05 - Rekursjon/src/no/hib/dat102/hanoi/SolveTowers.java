@@ -1,5 +1,7 @@
 package no.hib.dat102.hanoi;
 
+import java.util.Scanner;
+
 public class SolveTowers {
 
 	/**
@@ -7,7 +9,11 @@ public class SolveTowers {
 	 * @param args
 	 */
 	public static void main (String[] args ) {
-		TowersOfHanoi towers = new TowersOfHanoi(33);
+		Scanner tast = new Scanner(System.in);
+		System.out.print("Tast inn antall ringer: ");
+		int antall = tast.nextInt();
+		TowersOfHanoi towers = new TowersOfHanoi(antall);
 		towers.solve();
+		tast.close();
 	}
 }
