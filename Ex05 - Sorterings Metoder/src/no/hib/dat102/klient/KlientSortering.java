@@ -80,12 +80,9 @@ public class KlientSortering {
 			s.sorter(a[i]);
 		}
 		Instant etter = Instant.now();
-		tiden(foer, etter);
-	}
-
-	public static void tiden(Instant foer, Instant etter) {
+		
 		Duration tid = Duration.between(foer, etter);
 
-		System.out.println("Tid i millisekund: " + tid.toMillis());
+		System.out.println("Tid i millisekund: " + tid.toMillis()/antall);
 	}
 }
