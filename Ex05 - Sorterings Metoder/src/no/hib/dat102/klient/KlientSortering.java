@@ -12,6 +12,11 @@ import no.hib.dat102.sortering.InnsettingSortering;
 import no.hib.dat102.sortering.KvikkSortering;
 import no.hib.dat102.sortering.UtvalgSortering;
 
+/**
+ * 
+ * @author Kristoffer-Andre Kalliainen
+ *
+ */
 public class KlientSortering {
 	private static int valg;
 
