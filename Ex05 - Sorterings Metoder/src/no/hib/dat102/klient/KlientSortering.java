@@ -18,8 +18,16 @@ public class KlientSortering {
 	public static void main(String[] args) {
 		Scanner tast = new Scanner(System.in);
 
-		String meny = "\n1 - Utvalg\n" + "2 - Insetting\n" + "3 - Boble\n" + "4 - Kvikk\n" + "5 - Flette\n"
-				+ "6 - Radix\n" + "7 - Array.sort\n" + "8 - Avslutt\n" + "\nValg: ";
+		String meny = "\n1 - Utvalg\n" //
+				+ "2 - Insetting\n" //
+				+ "3 - Boble\n" //
+				+ "4 - Kvikk\n" //
+				+ "5 - Flette\n" //
+				+ "6 - Radix\n" //
+				+ "7 - Array.sort\n" //
+				+ "8 - Avslutt\n" //
+				+ "\nValg: "; //
+		
 		System.out.print("Oppgi antall elementer: ");
 		int antall = tast.nextInt();
 		do {
@@ -80,9 +88,9 @@ public class KlientSortering {
 			s.sorter(a[i]);
 		}
 		Instant etter = Instant.now();
-		
+
 		Duration tid = Duration.between(foer, etter);
 
-		System.out.println("Tid i millisekund: " + tid.toMillis()/antall);
+		System.out.println("Tid i millisekund: " + tid.toMillis() / antall);
 	}
 }
