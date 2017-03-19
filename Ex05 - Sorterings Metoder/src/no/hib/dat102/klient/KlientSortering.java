@@ -14,42 +14,45 @@ import no.hib.dat102.sortering.UtvalgSortering;
 
 public class KlientSortering {
 	private static int valg;
+
 	public static void main(String[] args) {
 		Scanner tast = new Scanner(System.in);
 
 		String meny = "\n1 - Utvalg\n" + "2 - Insetting\n" + "3 - Boble\n" + "4 - Kvikk\n" + "5 - Flette\n"
 				+ "6 - Radix\n" + "7 - Array.sort\n" + "8 - Avslutt\n" + "\nValg: ";
+		System.out.print("Oppgi antall elementer: ");
+		int antall = tast.nextInt();
 		do {
 			System.out.print(meny);
 			valg = tast.nextInt();
 			switch (valg) {
 			case 1:
 				// Utvalg
-				sortering(new UtvalgSortering<Integer>());
+				sortering(new UtvalgSortering<Integer>(), antall);
 				break;
 			case 2:
 				// Insetting
-				sortering(new InnsettingSortering<Integer>());
+				sortering(new InnsettingSortering<Integer>(), antall);
 				break;
 			case 3:
 				// Boble
-				sortering(new BobleSortering<Integer>());
+				sortering(new BobleSortering<Integer>(), antall);
 				break;
 			case 4:
 				// Kvikk
-				sortering(new KvikkSortering<Integer>());
+				sortering(new KvikkSortering<Integer>(), antall);
 				break;
 			case 5:
 				// Flette
-				sortering(new FletteSortering<Integer>());
+				sortering(new FletteSortering<Integer>(), antall);
 				break;
 			case 6:
 				// Radix
-				
+
 				break;
 			case 7:
 				// array.sort
-			
+
 				break;
 			case 8:
 				// Avslutt
@@ -60,9 +63,8 @@ public class KlientSortering {
 		tast.close();
 	}
 
-	public static void sortering(SorteringADT<Integer> s) {
+	public static void sortering(SorteringADT<Integer> s, int n) {
 		Random tilfeldig = new Random();
-		int n = 32000;
 		int antall = 10;
 
 		Integer[][] a = new Integer[antall][n];

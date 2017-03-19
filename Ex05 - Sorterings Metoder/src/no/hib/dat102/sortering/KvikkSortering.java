@@ -6,7 +6,7 @@ public class KvikkSortering<T extends Comparable<T>> implements SorteringADT<T> 
 
 	@Override
 	public void sorter(T[] data) {
-		kvikkSort(data, 0, data.length);
+		kvikkSort(data, 0, data.length - 1);
 	}
 
 	public void kvikkSort(T[] data, int min, int maks) {

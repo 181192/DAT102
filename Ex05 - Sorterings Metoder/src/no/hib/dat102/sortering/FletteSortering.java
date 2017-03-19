@@ -6,7 +6,7 @@ public class FletteSortering<T extends Comparable<T>> implements SorteringADT<T>
 
 	@Override
 	public void sorter(T[] data) {
-		fletteSort(data, 0, data.length);
+		fletteSort(data, 0, data.length - 1);
 	}
 
 	
