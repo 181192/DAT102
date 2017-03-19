@@ -143,4 +143,13 @@ public class SorteringsMetoder<T extends Comparable<T>> {
 			h++;
 		}
 	}
+	
+	public void radixSort(T[] data) {
+		String temp;
+		Integer tallObj;
+		int siffer;
+		int tall;
+		
+		
+	}
 }
