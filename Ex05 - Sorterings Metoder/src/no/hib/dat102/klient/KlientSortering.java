@@ -9,6 +9,7 @@ import no.hib.dat102.adt.SorteringADT;
 import no.hib.dat102.sortering.BobleSortering;
 import no.hib.dat102.sortering.FletteSortering;
 import no.hib.dat102.sortering.InnsettingSortering;
+import no.hib.dat102.sortering.Kvikk2Sortering;
 import no.hib.dat102.sortering.KvikkSortering;
 import no.hib.dat102.sortering.UtvalgSortering;
 
@@ -29,7 +30,8 @@ public class KlientSortering {
 				+ "3 - Boble\n" //
 				+ "4 - Kvikk\n" //
 				+ "5 - Flette\n" //
-				+ "6 - Avslutt\n" //
+				+ "6 - Kvikk2\n"
+				+ "7 - Avslutt\n" //
 				+ "\nValg: "; //
 		
 		do {
@@ -50,9 +52,9 @@ public class KlientSortering {
 				double c2 = 859.31*Math.pow(10, -9);
 				System.out.println(pynt);
 				System.out.println(linje);
-				sortering(new InnsettingSortering<Integer>(), "Innsetting", 32000, c2);
-				sortering(new InnsettingSortering<Integer>(), "Innsetting", 64000, c2);
-				sortering(new InnsettingSortering<Integer>(), "Innsetting", 128000, c2);
+				sortering(new InnsettingSortering<Integer>(), "Innset", 32000, c2);
+				sortering(new InnsettingSortering<Integer>(), "Innset", 64000, c2);
+				sortering(new InnsettingSortering<Integer>(), "Innset", 128000, c2);
 				break;
 			case 3:
 				// Boble
@@ -82,10 +84,18 @@ public class KlientSortering {
 				sortering(new FletteSortering<Integer>(), "Flette", 128000, c5);
 				break;
 			case 6:
+				double c6 = 8435.92*Math.pow(10, -9);
+				System.out.println(pynt);
+				System.out.println(linje);
+				sortering(new Kvikk2Sortering<Integer>(), "Kvikk2", 32000, c6);
+				sortering(new Kvikk2Sortering<Integer>(), "Kvikk2", 64000, c6);
+				sortering(new Kvikk2Sortering<Integer>(), "Kvikk2", 128000, c6);
+				break;
+			case 7:
 				// Avslutt
 				break;
 			}
-		} while (valg != 6);
+		} while (valg != 7);
 		tast.close();
 	}
 
