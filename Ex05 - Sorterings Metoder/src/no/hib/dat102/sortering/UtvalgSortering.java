@@ -20,4 +20,9 @@ public class UtvalgSortering<T extends Comparable<T>> implements SorteringADT<T>
 			data[neste] = temp;
 		}
 	}
+
+	@Override
+	public double funksjon(int n, double c) {
+		return c*Math.pow(n, 2);
+	}
 }

@@ -18,4 +18,9 @@ public class InnsettingSortering<T extends Comparable<T>> implements SorteringAD
 			data[p] = noekkel;
 		}
 	}
+
+	@Override
+	public double funksjon(int n, double c) {
+		return c*Math.pow(n, 2);
+	}
 }

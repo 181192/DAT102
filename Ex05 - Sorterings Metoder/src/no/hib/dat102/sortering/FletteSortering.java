@@ -64,4 +64,10 @@ public class FletteSortering<T extends Comparable<T>> implements SorteringADT<T>
 		}
 	}
 
+
+	@Override
+	public double funksjon(int n, double c) {
+		return c*n*(Math.log(n)/Math.log(2));
+	}
+
 }

@@ -38,4 +38,9 @@ public class RadixSortering<T extends Comparable<T>> implements SorteringADT<T> 
 		} // ytre løkke
 	}
 
+	@Override
+	public double funksjon(int n, double c) {
+		return 0;
+	}
+
 }

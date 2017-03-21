@@ -15,4 +15,9 @@ public class BobleSortering<T extends Comparable<T>> implements SorteringADT<T> 
 			}
 		}
 	}
+
+	@Override
+	public double funksjon(int n, double c) {
+		return c*Math.pow(n, 2);
+	}
 }

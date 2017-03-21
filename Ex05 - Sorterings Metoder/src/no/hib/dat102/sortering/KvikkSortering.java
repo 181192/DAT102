@@ -55,4 +55,9 @@ public class KvikkSortering<T extends Comparable<T>> implements SorteringADT<T> 
 		data[hoeyre] = temp;
 		return hoeyre;
 	} // metode
+
+	@Override
+	public double funksjon(int n, double c) {
+		return c*n*(Math.log(n)/Math.log(2));
+	}
 }

@@ -22,64 +22,77 @@ public class KlientSortering {
 
 	public static void main(String[] args) {
 		Scanner tast = new Scanner(System.in);
-
+		String pynt = "|Algoritme\t|" + "n\t|"+ "Antall Målinger\t|" + "Målttid\t|" + "Teoretisk tid (c * f(n))|";
+		String linje = "|---------------|-------|-----------------------|---------------|------------------------|";
 		String meny = "\n1 - Utvalg\n" //
 				+ "2 - Insetting\n" //
 				+ "3 - Boble\n" //
 				+ "4 - Kvikk\n" //
 				+ "5 - Flette\n" //
-				+ "6 - Radix\n" //
-				+ "7 - Array.sort\n" //
-				+ "8 - Avslutt\n" //
+				+ "6 - Avslutt\n" //
 				+ "\nValg: "; //
 		
-		System.out.print("Oppgi antall elementer: ");
-		int antall = tast.nextInt();
 		do {
 			System.out.print(meny);
 			valg = tast.nextInt();
 			switch (valg) {
 			case 1:
 				// Utvalg
-				sortering(new UtvalgSortering<Integer>(), antall);
+				double c1 = 1047.93*Math.pow(10, -9);
+				System.out.println(pynt);
+				System.out.println(linje);
+				sortering(new UtvalgSortering<Integer>(), "Utvalg", 32000, c1);
+				sortering(new UtvalgSortering<Integer>(), "Utvalg", 64000, c1);
+				sortering(new UtvalgSortering<Integer>(), "Utvalg", 128000,c1);
 				break;
 			case 2:
 				// Insetting
-				sortering(new InnsettingSortering<Integer>(), antall);
+				double c2 = 859.31*Math.pow(10, -9);
+				System.out.println(pynt);
+				System.out.println(linje);
+				sortering(new InnsettingSortering<Integer>(), "Innsetting", 32000, c2);
+				sortering(new InnsettingSortering<Integer>(), "Innsetting", 64000, c2);
+				sortering(new InnsettingSortering<Integer>(), "Innsetting", 128000, c2);
 				break;
 			case 3:
 				// Boble
-				sortering(new BobleSortering<Integer>(), antall);
+				double c3 = 1579.79*Math.pow(10, -9);
+				System.out.println(pynt);
+				System.out.println(linje);
+				sortering(new BobleSortering<Integer>(), "Boble", 32000, c3);
+				sortering(new BobleSortering<Integer>(), "Boble", 64000, c3);
+				sortering(new BobleSortering<Integer>(), "Boble", 128000, c3);
 				break;
 			case 4:
 				// Kvikk
-				sortering(new KvikkSortering<Integer>(), antall);
+				double c4 = 12207.33*Math.pow(10, -9);
+				System.out.println(pynt);
+				System.out.println(linje);
+				sortering(new KvikkSortering<Integer>(), "Kvikk", 32000, c4);
+				sortering(new KvikkSortering<Integer>(), "Kvikk", 64000, c4);
+				sortering(new KvikkSortering<Integer>(), "Kvikk", 128000, c4);
 				break;
 			case 5:
 				// Flette
-				sortering(new FletteSortering<Integer>(), antall);
+				double c5 = 17072.43*Math.pow(10, -9);
+				System.out.println(pynt);
+				System.out.println(linje);
+				sortering(new FletteSortering<Integer>(), "Flette", 32000, c5);
+				sortering(new FletteSortering<Integer>(), "Flette", 64000, c5);
+				sortering(new FletteSortering<Integer>(), "Flette", 128000, c5);
 				break;
 			case 6:
-				// Radix
-
-				break;
-			case 7:
-				// array.sort
-
-				break;
-			case 8:
 				// Avslutt
 				break;
 			}
-		} while (valg != 8);
-
+		} while (valg != 6);
 		tast.close();
 	}
 
-	public static void sortering(SorteringADT<Integer> s, int n) {
+	public static void sortering(SorteringADT<Integer> s, String type, int n, double c) {
 		Random tilfeldig = new Random();
 		int antall = 10;
-
+		
 		Integer[][] a = new Integer[antall][n];
 
 		// sett inn tilfeldige heltall i alle rekker
@@ -95,7 +108,8 @@ public class KlientSortering {
 		Instant etter = Instant.now();
 
 		Duration tid = Duration.between(foer, etter);
-
-		System.out.println("Tid i millisekund: " + tid.toMillis() / antall);
+		
+		
+		System.out.println(("|"+ type + "\t\t|" + n + "\t|" + antall + "\t\t\t|"+ (tid.toMillis() / antall) + "\t\t|" + s.funksjon(n, c)));
 	}
 }
