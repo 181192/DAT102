@@ -2,7 +2,7 @@ package no.hib.dat102;
 
 public class SummenAvN {
 	public static void main(String[] args) {
-		int n = 3;
+		int n = 100;
 		System.out.println("Summen av " + n + " er : " + sum(n));
 	}
 

@@ -3,7 +3,7 @@ package no.hib.dat102.sortering;
 import no.hib.dat102.adt.SorteringADT;
 
 public class Kvikk2Sortering<T extends Comparable<T>> implements SorteringADT<T> {
-	private final int skille = 92;
+	private final int skille = 10;
 	@Override
 	public void sorter(T[] data) {
 		kvikkSortNy(data, 0, data.length - 1);
