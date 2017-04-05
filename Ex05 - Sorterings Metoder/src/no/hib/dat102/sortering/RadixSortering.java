@@ -7,7 +7,7 @@ public class RadixSortering<T extends Comparable<T>> implements SorteringADT<T> 
 
 	@Override
 	public void sorter(T[] data) {
-		radixSort((Integer[]) data, 4);
+		radixSort((Integer[]) data, 10000);
 	}
 	
 	public void radixSort(Integer[] data, int antallSiffer) {

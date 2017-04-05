@@ -102,13 +102,12 @@ public class KlientSortering {
 	public static void sortering(SorteringADT<Integer> s, String type, int n, double c) {
 		Random tilfeldig = new Random();
 		int antall = 10;
-		
 		Integer[][] a = new Integer[antall][n];
 
 		// sett inn tilfeldige heltall i alle rekker
 		for (int i = 0; i < antall; i++) {
 			for (int j = 0; j < n; j++) {
-				a[i][j] = tilfeldig.nextInt();
+				a[i][j] = tilfeldig.nextInt(100000);
 			}
 		}
 		Instant foer = Instant.now();
