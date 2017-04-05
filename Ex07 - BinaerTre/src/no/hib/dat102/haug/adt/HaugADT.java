@@ -1,4 +1,4 @@
-package no.hib.dat102.haug.tabell.adt;
+package no.hib.dat102.haug.adt;
 
 public interface HaugADT <T extends Comparable<T>> {
  
