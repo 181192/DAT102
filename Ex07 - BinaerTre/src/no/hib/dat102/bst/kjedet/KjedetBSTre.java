@@ -1,12 +1,12 @@
 package no.hib.dat102.bst.kjedet;
 
-//********************************************************************
-// KjedetBinærSøkeTre.java        
-//
-//********************************************************************
 import java.util.Iterator;
 
 import no.hib.dat102.bst.adt.BSTreADT;
+
+/********************************************************************
+ * KjedetBSTre.java
+ ********************************************************************/
 
 public class KjedetBSTre<T extends Comparable<T>> implements BSTreADT<T>, Iterable<T> {
 
@@ -104,7 +104,7 @@ public class KjedetBSTre<T extends Comparable<T>> implements BSTreADT<T>, Iterab
 	}
 
 	/******************************************************************
-	 * Fjerner noden med største verdi fra dette binære søketreet.
+	 * Fjerner og returnerer noden med minste verdi fra dette binære søketreet.
 	 *********************************************************************/
 	public T fjernMin() {
 		T resultat = null;
@@ -131,7 +131,7 @@ public class KjedetBSTre<T extends Comparable<T>> implements BSTreADT<T>, Iterab
 	}//
 
 	/******************************************************************
-	 * Fjerner noden med største verdi fra dette binære søketreet.
+	 * Fjerner og returnerer noden med største verdi fra dette binære søketreet.
 	 ******************************************************************/
 	public T fjernMaks() {
 		T resultat = null;
@@ -242,6 +242,29 @@ public class KjedetBSTre<T extends Comparable<T>> implements BSTreADT<T>, Iterab
 		return svar;
 	}
 
+	public int finnHoyde() {
+		int resultat = -1;
+		if (!erTom()) {
+			resultat = hoydeRek(rot);
+		}
+		return resultat;
+	}
+
+	private int hoydeRek(BinaerTreNode<T> p) {
+		int resultat = 0;
+		if (p != null) {
+			int venstreHoyde = hoydeRek(p.getVenstre());
+			int hoyreHoyde = hoydeRek(p.getHoyre());
+			if (venstreHoyde > hoyreHoyde) {
+				resultat = 1 + venstreHoyde;
+			} else {
+				resultat = 1 + hoyreHoyde;
+			}
+		}
+
+		return resultat;
+	}
+
 	/******************************************************************
 	 * Returnerer en inordeniterator for elementene i bs-treet.
 	 ******************************************************************/
@@ -280,6 +303,21 @@ public class KjedetBSTre<T extends Comparable<T>> implements BSTreADT<T>, Iterab
 			visRekInorden(p.getVenstre());
 			System.out.print(p.getElement() + " ");
 			visRekInorden(p.getHoyre());
+		}
+	}
+	
+	public void skrivVerdier(T nedre, T ovre) {
+		skrivVerdierRek(rot, nedre, ovre);
+		System.out.println();
+	}
+	
+	private void skrivVerdierRek(BinaerTreNode<T> t, T min, T maks) {
+		if (t != null) {
+			skrivVerdierRek(t.getVenstre(), min, maks);
+			if ((t.getElement().compareTo(min) >= 0) && (t.getElement().compareTo(maks) <= 0)) {
+				System.out.print(t.getElement() + " ");
+			}
+			skrivVerdierRek(t.getHoyre(), min, maks);
 		}
 	}
 

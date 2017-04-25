@@ -19,6 +19,7 @@ public class InordenIterator<T> implements Iterator<T> {
 			return null;
 		while (p.getVenstre() != null) {
 			s.push(p);
+			System.out.println("Pusher elementet: " + p.getElement().toString());
 			p = p.getVenstre();
 		}
 		return p;
@@ -50,14 +51,16 @@ public class InordenIterator<T> implements Iterator<T> {
 		if (hasNext()) {
 			resultat = aktuell.getElement();
 
-			if (aktuell.getHoyre() != null) // har et høyre undertre
+			if (aktuell.getHoyre() != null) { // har et høyre undertre
 				// stable på node for venstre undertre
 				aktuell = gaaTilVenstre(aktuell.getHoyre());
-			else if (!s.isEmpty())
+			} else if (!s.isEmpty()) {
 				// ingen høyre undertre
 				aktuell = (BinaerTreNode<T>) s.pop();
-			else
+				System.out.println("Poper elementet: " + aktuell.getElement().toString());
+			} else {
 				aktuell = null; // slutt på treet
+			}
 		}
 		return resultat;
 	}
