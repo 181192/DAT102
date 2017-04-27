@@ -305,12 +305,12 @@ public class KjedetBSTre<T extends Comparable<T>> implements BSTreADT<T>, Iterab
 			visRekInorden(p.getHoyre());
 		}
 	}
-	
+
 	public void skrivVerdier(T nedre, T ovre) {
 		skrivVerdierRek(rot, nedre, ovre);
 		System.out.println();
 	}
-	
+
 	private void skrivVerdierRek(BinaerTreNode<T> t, T min, T maks) {
 		if (t != null) {
 			skrivVerdierRek(t.getVenstre(), min, maks);

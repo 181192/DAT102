@@ -40,9 +40,10 @@ public interface BSTreADT<T extends Comparable<T>> extends Iterable<T> {
 	 * Returnerer en inordeniterator. /
 	 *******************************************************************/
 	public Iterator<T> iterator();
-	
+
 	/**
 	 * Finner høyden til treet
+	 * 
 	 * @return
 	 */
 	public int finnHoyde();
